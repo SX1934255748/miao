@@ -308,10 +308,12 @@ var  sx1934255748 = {
     [ary[a], ary[b]] = [ary[b], ary[a]]
   },
   shuffle(ary) {
+    let ary = ary.slice()
     for(let i in ary) {
       let j = Math.round(Math.random() * (ary.length - 1))
       this.swap(ary, i, j)
     }
+    return ary
   },
   last(ary) {
     return ary[ary.length-1]
