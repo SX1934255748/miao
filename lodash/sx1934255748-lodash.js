@@ -359,6 +359,12 @@ var  sx1934255748 = {
       return bool
     })
   },
+  reverse(ary) {
+    return ary.map((it, index) => {
+      return ary[ary.length-index-1]
+    })
+  },
+
 
 
 
