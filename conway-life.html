@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+    .main {
+      width: 1000px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="main">
+
+  </div>
+  <div>
+    <button onclick="next()">下一轮</button>
+    <button onclick="random()">随机</button>
+    <button onclick="random_add()">随机+</button>
+    <button onclick="random_minus()">随机-</button>
+    <button onclick="result()">最终结果</button>
+    <input id="autotime" type="text" value="500">
+    <button onclick="auto()">自动</button>
+    <button onclick="auto_end()">停止</button>
+    <div class="row_col">
+      <input id="row" value="30" type="text">
+      <span>X</span>
+      <input id="col" value="30" type="text">
+      <button onclick="changeRowCol()">改变</button>
+    </div>
+  </div>
+
+
+  <script>
+    let main = document.querySelector('.main')
+    let autotime = document.querySelector('#autotime')
+
+    let row = Number(document.querySelector('#row').value)
+    let col = Number(document.querySelector('#col').value)
+    let world = new Array(row).fill(0).map(it => new Array(col).fill(false))
+
+    let auto_id
+    let time = 500
+
+
+    displayWorld(world)
+
+    main.addEventListener('click', (e) => {
+
+      if(e.target.localName == 'input') {
+        let row = e.target.dataset.row
+        let col = e.target.dataset.col
+        console.log(row,col)
+        if(world[row][col] ) {
+          world[row][col] = false
+        } else {
+          world[row][col] = true
+        }
+        console.log(world)
+      }
+
+    })
+
+    function changeRowCol() {
+      row = Number(document.querySelector('#row').value)
+      col = Number(document.querySelector('#col').value)
+      world = new Array(row).fill(0).map(it => new Array(col).fill(false))
+      displayWorld(world)
+    }
+
+
+
+    function log(e) {
+      console.log(e)
+      return e
+    }
+    function displayWorld(world){
+
+      main.innerHTML = world.map((row, rowIndex)=> {
+        return `
+          <div>
+            ${row.map((cell, colIndex) => {
+              if(cell) {
+                return `<input type="checkbox" data-row="${rowIndex}" data-col="${colIndex}" checked>`
+              } else {
+                return `<input type="checkbox" data-row="${rowIndex}" data-col="${colIndex}">`
+              }
+            }).join('')}
+          </div>
+        `
+      }).join('')
+    }
+
+    function random() {
+      world = world.map((row) => {
+        return row.map(cell => {
+          if(Math.random() > 0.5) {
+            return true
+          } else {
+            return false
+          }
+        })
+      })
+      console.log(world)
+      displayWorld(world)
+      auto_end()
+    }
+
+    function random_add() {
+      world = world.map((row) => {
+        return row.map(cell => {
+          if(cell == true || Math.random() > 0.5) {
+            return true
+          } else {
+            return false
+          }
+        })
+      })
+      displayWorld(world)
+      auto_end()
+    }
+
+    function random_minus() {
+      world = world.map((row) => {
+        return row.map(cell => {
+          if(cell == false || (cell == true && Math.random() > 0.5)) {
+            return false
+          } else {
+            return true
+          }
+
+        })
+      })
+      displayWorld(world)
+      auto_end()
+    }
+
+    function next() {
+      let newWord = nextGeneration(world)
+      world = newWord
+      displayWorld(world)
+    }
+
+    function nextGeneration(world) {
+      let newWorld = new Array(row).fill(false).map(it => new Array(col).fill(false))
+      for(let row = 0; row < world.length; row++) {
+        for(let col = 0; col < world[row].length; col++) {
+          let neightbor = 0
+          for(let i = row - 1; i <= row + 1; i++) {
+            for(let j = col - 1; j <= col + 1; j++) {
+              if(world[i] && world[i][j]) {
+                neightbor++
+              }
+            }
+          }
+          neightbor -= world[row][col]
+          if(world[row][col]) {
+            if(neightbor < 2 || neightbor > 3) {
+              newWorld[row][col] = false
+            } else {
+              newWorld[row][col] = true
+            }
+          } else {
+            if(neightbor == 3) {
+              newWorld[row][col] = true
+            }
+          }
+        }
+
+      }
+      return newWorld
+    }
+
+    function result() {
+      let newWorld = world
+      let low = nextGeneration(world)
+      let fast = nextGeneration(nextGeneration(world))
+
+      while(!ary_equal(low, fast)) {
+        low = nextGeneration(low)
+        fast = nextGeneration(nextGeneration(fast))
+      }
+      world = low
+      displayWorld(world)
+    }
+
+    function ary_equal(ary1, ary2) {
+      if(typeof ary1 == 'object' ) {
+        for(let i in ary1) {
+          if(!ary_equal(ary1[i], ary2[i])) {
+            return false
+          }
+        }
+        return true
+      } else {
+          if(ary1 != ary2) {
+            return false
+          } else {
+            return true
+          }
+      }
+    }
+
+    function auto() {
+      time = autotime.value
+      if(auto_id == undefined) {
+        auto_id = setInterval(next, time);
+      }
+
+    }
+    function auto_end() {
+      clearInterval(auto_id)
+      auto_id = undefined
+    }
+
+
+  </script>
+
+</body>
+</html>

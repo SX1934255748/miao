@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    div {
+      position: absolute;
+      display: inline-block;
+      /* background-color: violet; */
+    }
+    body {
+      xposition: relative;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 8px;
+      /* background-color: violet; */
+      position: absolute;
+      transform: translate(-4px, -4px);
+    }
+    .draggable {
+      position: absolute;
+      width: 100px;
+      display: inline-block;
+
+      height: 100px;
+      background-color:violet;
+    }
+    .add {
+      background-color: #fff;
+      width: 15px;
+      height: 20px;
+      content: "+";
+
+    }
+  </style>
+</head>
+<body>
+
+  <div style="left:0;top:0;" class="qs jj draggable jk"><div class="add"></div>s</div>
+
+  <!-- <a href="https://www.mi.com/" target="_blank">MI</a> -->
+
+  <script>
+    var startX // 点击发生时鼠标的初始位置
+    var startY // 点击发生时鼠标的初始位置
+
+    var nodeX // 点击发生时，元素的初始位置
+    var nodeY // 点击发生时，元素的初始位置
+
+    var moveNode // 要移动的节点
+
+    var adds = document.querySelectorAll('.add')[7]
+    var adds = document.querySelector('.add')
+    function add(node = adds) {
+      node.addEventListener('click', function(e) {
+        e.preventDefault()
+        var parentNode = e.target.parentNode
+        var addNode = parentNode.cloneNode(true)
+        addNode.style.backgroundColor = (() => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`)()
+        addNode.style.left = parseInt(addNode.style.left) + 20 + 'px';
+        addNode.style.top = parseInt(addNode.style.top) + 20 + 'px';
+
+        document.body.appendChild(addNode)
+        add(addNode)
+      })
+    }
+
+    add()
+
+
+
+    function includes(ary, str) {
+      return Array.prototype.includes.call(ary, str)
+    }
+    maxIndex = 1
+    let dragableElement = document.querySelectorAll('.draggable')
+
+
+    document.addEventListener('mousedown', function(e) {
+
+      // e.preventDefault()
+      startX = e.clientX
+      startY = e.clientY
+
+      if(includes(e.target.classList, 'draggable')) {
+        e.preventDefault()
+        moveNode = e.target.closest('.draggable')
+        moveNode.style.zIndex = maxIndex++
+        nodeX = parseInt(moveNode.style.left)
+        nodeY = parseInt(moveNode.style.top)
+        addEventListener('mousemove', move)
+
+      }
+
+
+    })
+
+    // function throttle(func, time) {
+    //   var bool = false
+    //   var timeout
+    //   var event
+    //   return function(e) {
+    //     event = e
+    //     if(!bool) {
+    //       bool = true
+    //       timeout = setTimeout(() => {
+    //         func()
+    //         bool = false
+    //       }, time)
+    //     }
+    //   }
+
+
+    // }
+
+    function move(e) {
+
+      if(e.which == 0) {
+        removeEventListener('mousemove', move)
+
+      } else {
+
+        let x = e.clientX
+        let y = e.clientY
+        console.log(e, x, y)
+        console.log(moveNode)
+        if(moveNode) {
+          moveNode.style.left = e.clientX + nodeX - startX + 'px'
+          moveNode.style.top = e.clientY + nodeY - startY + 'px'
+
+        }
+      }
+
+
+    }
+
+    document.addEventListener('readystatechange', function(e) {
+      console.log(document.readyState)
+      console.log(document)
+    })
+
+
+    let lastTime = 0
+    // addEventListener('click', function(e) {
+    //   time = new Date()
+    //   console.log('click', e)
+
+    //   if(time - lastTime < 300) {
+    //     clickCount++
+    //     if(clickCount == 2) {
+    //       console.log('db click')
+    //     }
+    //     if(clickCount == 3) {
+    //       console.log('three click')
+    //     }
+    //   } else {
+    //     clickCount = 1
+    //   }
+
+    //   lastTime = time
+    // })
+
+    // window.addEventListener('click', function(e) {
+    //   var dot = document.createElement('span')
+
+    //   dot.setAttribute('class', 'dot')
+    //   dot.style.left = e.pageX + 'px'
+    //   dot.style.top = e.pageY + 'px'
+    //   document.body.append(dot)
+
+
+    // })
+
+
+
+
+    // var dx = 1
+    // window.addEventListener('keydown', function(e) {
+    //   console.log(e.code)
+    //   if(e.code == 'ArrowLeft') {
+    //     dx = -1
+    //   }
+    //   if(e.code == 'ArrowRight') {
+    //     dx = 1
+    //   }
+    //   pressKey.add(e.code)
+    // })
+
+    // window.addEventListener('keyup', function(e) {
+    //   pressKey.delete(e.code)
+    //   if(e.code == 'ArrowLeft') {
+
+
+
+
+    //   }
+
+
+
+    // })
+
+    // var rect = document.querySelector('span')
+    // var lastName = null
+    // var bool = 0
+
+
+  </script>
+</body>
+</html>

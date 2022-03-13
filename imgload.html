@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, html {
+      height: 100%;
+      width: 100%;
+    }
+    img {
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!-- /miao/mini-regex101.html 正则匹配功能页面
+  /miao/regex-graph.html   正则铁路图
+  /miao/moving-box.html    方块移动
+  /miao/paintboard.html    画板 -->
+  <img data-src="./Pictures/000201-15646753211232.jpg" alt="">
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto odit assumenda corporis quisquam ea earum fugiat eum, natus deleniti sit maiores quos quas consequuntur temporibus at veniam mollitia, cum voluptatem?</p>
+
+  <img data-src="./Pictures/04401a14bec795fbeea10a05cf01408c.jpg" alt="">
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto odit assumenda corporis quisquam ea earum fugiat eum, natus deleniti sit maiores quos quas consequuntur temporibus at veniam mollitia, cum voluptatem?</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto odit assumenda corporis quisquam ea earum fugiat eum, natus deleniti sit maiores quos quas consequuntur temporibus at veniam mollitia, cum voluptatem?</p>
+
+  <img data-src="./Pictures/0a180b34726f7b1e1adf7c51f5154744.jpg" alt="">
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto odit assumenda corporis quisquam ea earum fugiat eum, natus deleniti sit maiores quos quas consequuntur temporibus at veniam mollitia, cum voluptatem?</p>
+  <img data-src="./Pictures/1ea99cc5557949fd6291b5f30da44b0434e961c8.jpg" alt="">
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto odit assumenda corporis quisquam ea earum fugiat eum, natus deleniti sit maiores quos quas consequuntur temporibus at veniam mollitia, cum voluptatem?</p>
+
+  <script>
+    window.addEventListener('scroll', function(e) {
+      var imgs = document.querySelectorAll('img:not([src])')
+
+      for(let img of imgs) {
+        let box = img.getBoundingClientRect()
+        console.log(e)
+        if(box.y < innerHeight ) {
+          img.src = img.dataset.src
+        }
+
+
+      }
+
+
+    })
+
+
+
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+
+  <div>
+    <div data-tabname="About">about</div>
+    <div data-tabname="详情">详情</div>
+    <div data-tabname="关于">关于</div>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script>
+    asTabs($("div")[0])
+    function asTabs(node) {
+      $(node).children().hide().map( function(index, childnode) { //jquery.map里的this是每次迭代的元素
+        return $('<button></button>')
+                .text(childnode.dataset.tabname)
+                .click(function() {
+                  $(this).css('color', 'red').siblings('button').css('color', 'black')
+                  $(childnode).show().siblings('div').hide()
+                })[0]
+      }).prependTo($(node)).first().click()
+    }
+
+    Array.prototype.reduce2 = function(func, result) {
+      let k
+      if(result === undefined) {
+        result = this[0]
+        k = 1
+      } else {
+        k = 0
+      }
+      let len = this.length
+      for(let i = k; i < len; i++) {
+        result = func(result, this[i], i, this)
+      }
+      return result
+    }
+  </script>
+</body>
+</html>

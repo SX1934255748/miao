@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style type="text/less">
+    .like {
+      background-image: url(./css-sprite/web_heart_animation.png);
+      background-repeat: no-repeat;
+      height: 100px;
+      width: 100px;
+      background-color: yellow;
+      transition: 0s;
+
+      &:active{
+        background-position: -2800px;
+        transition: 0.8s steps(28);
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <div class="like">
+  </div>
+  <script src="./less+sass/less.min.js"></script>
+
+</body>
+
+</html>

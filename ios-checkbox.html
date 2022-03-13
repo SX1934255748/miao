@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/less">
+    body,html {
+      height: 100%;
+      margin: 0px;
+
+    }
+    * {
+      box-sizing: border-box;
+    }
+    div.a{
+      position: relative;
+      display: inline-block;
+      width: 620px;
+      height: 320px;
+      left: calc(50% - 310px);
+      top: calc(50% - 160px);
+
+    }
+    input:checked + .green {
+      border:green solid 20px;
+      transition: border 0.5s;
+    }
+    input:checked + .green .write {
+      margin-top: 100px;
+      width: 30%;
+      height: 30%;
+      transition: margin-top 1s, margin-left 1s, width 1s, height 1s;
+      margin-left: 400px;
+    }
+
+    label {
+      display: inline-block;
+      position: absolute;
+      width: 620px;
+      height: 320px;
+      border-radius: 300px;
+      text-align: left;
+      &.green{
+        background-color: green;
+        border: 10px rgb(61,50,50) solid;
+        overflow: hidden;
+        transition: border 0.5s;
+      }
+
+      &.write{
+        background-color:white;
+        width: 600px;
+        height: 300px;
+        transition: margin-top 1s, margin-left 1s, width 1s, height 1s;
+      }
+      &.circle{
+        height: 280px;
+        width: 280px;
+        margin-left: 10px;
+        margin-top: 10px;
+        background-color: white;
+        border-radius: 280px;
+        transition: margin-left 0.6s, width 1s;
+        box-shadow: 3px 3px 10px teal;
+        border: 1px 10px solid teal;
+      }
+
+    }
+    input:checked + .green .circle {
+      margin-left: 300px;
+      width: 600px;
+      margin-top: 0;
+      box-shadow: -3px 3px 3px teal;
+      transition: margin-left 0.6s, width 1s box-shadow 0.5s;
+      border: 1px 10px solid teal;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="a" >
+    <input type="checkbox" id="i" hidden>
+    <label class="green" for="i">
+      <label class="write" for="i"></label>
+      <label class="circle" for="i"></label>
+    </label>
+  </div>
+<script src="./less+sass/less.min.js"></script>
+</body>
+</html>

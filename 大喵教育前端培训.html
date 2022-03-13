@@ -1,0 +1,3318 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://10.2.2.2:7000/lodash-oj10/ -->
+<html data-darkreader-mode="dynamic" data-darkreader-scheme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, #bit-notification-bar-iframe, ::-webkit-calendar-picker-indicator {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}</style><style class="darkreader darkreader--variables" media="screen">:root {
+   --darkreader-neutral-background: #131516;
+   --darkreader-neutral-text: #d8d4cf;
+   --darkreader-selection-background: #004daa;
+   --darkreader-selection-text: #e8e6e3;
+}</style><style class="darkreader darkreader--root-vars" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">html {
+    background-color: #181a1b !important;
+}
+html, body, input, textarea, select, button {
+    background-color: #181a1b;
+}
+html, body, input, textarea, select, button {
+    border-color: #736b5e;
+    color: #e8e6e3;
+}
+a {
+    color: #3391ff;
+}
+table {
+    border-color: #545b5e;
+}
+::placeholder {
+    color: #b2aba1;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #555b00 !important;
+    color: #e8e6e3 !important;
+}
+::-webkit-scrollbar {
+    background-color: #202324;
+    color: #aba499;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #454a4d;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #575e62;
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: #484e51;
+}
+::-webkit-scrollbar-corner {
+    background-color: #181a1b;
+}
+::selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}
+::-moz-selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}</style>
+  
+  <title>大喵教育前端培训</title>
+  <meta name="viewport" content="width=1440">
+  <link rel="stylesheet" href="./大喵教育前端培训_files/dracula.min.css"><style class="darkreader darkreader--sync" media="screen"></style>
+  <link rel="stylesheet" href="./大喵教育前端培训_files/tester.css"><style class="darkreader darkreader--sync" media="screen"></style>
+  <link rel="stylesheet" href="./大喵教育前端培训_files/balloon.min.css"><style class="darkreader darkreader--cors" media="screen">:root{--balloon-color: rgba(16,16,16,0.95);--balloon-font-size: 12px;--balloon-move: 4px}button[aria-label]{overflow:visible}[aria-label]{position:relative;cursor:pointer}[aria-label]:after{opacity:0;pointer-events:none;transition:all .18s ease-out .18s;text-indent:0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-weight:normal;font-style:normal;text-shadow:none;font-size:var(--balloon-font-size);background:var(--balloon-color);border-radius:2px;color:#fff;content:attr(aria-label);padding:.5em 1em;position:absolute;white-space:nowrap;z-index:10}[aria-label]:before{width:0;height:0;border:5px solid transparent;border-top-color:var(--balloon-color);opacity:0;pointer-events:none;transition:all .18s ease-out .18s;content:"";position:absolute;z-index:10}[aria-label]:hover:before,[aria-label]:hover:after,[aria-label][data-balloon-visible]:before,[aria-label][data-balloon-visible]:after,[aria-label]:not([data-balloon-nofocus]):focus:before,[aria-label]:not([data-balloon-nofocus]):focus:after{opacity:1;pointer-events:none}[aria-label]:not([data-balloon-pos]):after{bottom:100%;left:50%;margin-bottom:10px;transform:translate(-50%, var(--balloon-move));transform-origin:top}[aria-label]:not([data-balloon-pos]):before{bottom:100%;left:50%;transform:translate(-50%, var(--balloon-move));transform-origin:top}[aria-label]:not([data-balloon-pos]):hover:after,[aria-label]:not([data-balloon-pos])[data-balloon-visible]:after{transform:translate(-50%, 0)}[aria-label]:not([data-balloon-pos]):hover:before,[aria-label]:not([data-balloon-pos])[data-balloon-visible]:before{transform:translate(-50%, 0)}[aria-label].font-awesome:after{font-family:FontAwesome, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif}[aria-label][data-balloon-break]:after{white-space:pre}[aria-label][data-balloon-break][data-balloon-length]:after{white-space:pre-line;word-break:break-word}[aria-label][data-balloon-blunt]:before,[aria-label][data-balloon-blunt]:after{transition:none}[aria-label][data-balloon-pos="up"]:after{bottom:100%;left:50%;margin-bottom:10px;transform:translate(-50%, var(--balloon-move));transform-origin:top}[aria-label][data-balloon-pos="up"]:before{bottom:100%;left:50%;transform:translate(-50%, var(--balloon-move));transform-origin:top}[aria-label][data-balloon-pos="up"]:hover:after,[aria-label][data-balloon-pos="up"][data-balloon-visible]:after{transform:translate(-50%, 0)}[aria-label][data-balloon-pos="up"]:hover:before,[aria-label][data-balloon-pos="up"][data-balloon-visible]:before{transform:translate(-50%, 0)}[aria-label][data-balloon-pos="up-left"]:after{bottom:100%;left:0;margin-bottom:10px;transform:translate(0, var(--balloon-move));transform-origin:top}[aria-label][data-balloon-pos="up-left"]:before{bottom:100%;left:5px;transform:translate(0, var(--balloon-move));transform-origin:top}[aria-label][data-balloon-pos="up-left"]:hover:after,[aria-label][data-balloon-pos="up-left"][data-balloon-visible]:after{transform:translate(0, 0)}[aria-label][data-balloon-pos="up-left"]:hover:before,[aria-label][data-balloon-pos="up-left"][data-balloon-visible]:before{transform:translate(0, 0)}[aria-label][data-balloon-pos="up-right"]:after{bottom:100%;right:0;margin-bottom:10px;transform:translate(0, var(--balloon-move));transform-origin:top}[aria-label][data-balloon-pos="up-right"]:before{bottom:100%;right:5px;transform:translate(0, var(--balloon-move));transform-origin:top}[aria-label][data-balloon-pos="up-right"]:hover:after,[aria-label][data-balloon-pos="up-right"][data-balloon-visible]:after{transform:translate(0, 0)}[aria-label][data-balloon-pos="up-right"]:hover:before,[aria-label][data-balloon-pos="up-right"][data-balloon-visible]:before{transform:translate(0, 0)}[aria-label][data-balloon-pos="down"]:after{left:50%;margin-top:10px;top:100%;transform:translate(-50%, calc(var(--balloon-move) * -1))}[aria-label][data-balloon-pos="down"]:before{width:0;height:0;border:5px solid transparent;border-bottom-color:var(--balloon-color);left:50%;top:100%;transform:translate(-50%, calc(var(--balloon-move) * -1))}[aria-label][data-balloon-pos="down"]:hover:after,[aria-label][data-balloon-pos="down"][data-balloon-visible]:after{transform:translate(-50%, 0)}[aria-label][data-balloon-pos="down"]:hover:before,[aria-label][data-balloon-pos="down"][data-balloon-visible]:before{transform:translate(-50%, 0)}[aria-label][data-balloon-pos="down-left"]:after{left:0;margin-top:10px;top:100%;transform:translate(0, calc(var(--balloon-move) * -1))}[aria-label][data-balloon-pos="down-left"]:before{width:0;height:0;border:5px solid transparent;border-bottom-color:var(--balloon-color);left:5px;top:100%;transform:translate(0, calc(var(--balloon-move) * -1))}[aria-label][data-balloon-pos="down-left"]:hover:after,[aria-label][data-balloon-pos="down-left"][data-balloon-visible]:after{transform:translate(0, 0)}[aria-label][data-balloon-pos="down-left"]:hover:before,[aria-label][data-balloon-pos="down-left"][data-balloon-visible]:before{transform:translate(0, 0)}[aria-label][data-balloon-pos="down-right"]:after{right:0;margin-top:10px;top:100%;transform:translate(0, calc(var(--balloon-move) * -1))}[aria-label][data-balloon-pos="down-right"]:before{width:0;height:0;border:5px solid transparent;border-bottom-color:var(--balloon-color);right:5px;top:100%;transform:translate(0, calc(var(--balloon-move) * -1))}[aria-label][data-balloon-pos="down-right"]:hover:after,[aria-label][data-balloon-pos="down-right"][data-balloon-visible]:after{transform:translate(0, 0)}[aria-label][data-balloon-pos="down-right"]:hover:before,[aria-label][data-balloon-pos="down-right"][data-balloon-visible]:before{transform:translate(0, 0)}[aria-label][data-balloon-pos="left"]:after{margin-right:10px;right:100%;top:50%;transform:translate(var(--balloon-move), -50%)}[aria-label][data-balloon-pos="left"]:before{width:0;height:0;border:5px solid transparent;border-left-color:var(--balloon-color);right:100%;top:50%;transform:translate(var(--balloon-move), -50%)}[aria-label][data-balloon-pos="left"]:hover:after,[aria-label][data-balloon-pos="left"][data-balloon-visible]:after{transform:translate(0, -50%)}[aria-label][data-balloon-pos="left"]:hover:before,[aria-label][data-balloon-pos="left"][data-balloon-visible]:before{transform:translate(0, -50%)}[aria-label][data-balloon-pos="right"]:after{left:100%;margin-left:10px;top:50%;transform:translate(calc(var(--balloon-move) * -1), -50%)}[aria-label][data-balloon-pos="right"]:before{width:0;height:0;border:5px solid transparent;border-right-color:var(--balloon-color);left:100%;top:50%;transform:translate(calc(var(--balloon-move) * -1), -50%)}[aria-label][data-balloon-pos="right"]:hover:after,[aria-label][data-balloon-pos="right"][data-balloon-visible]:after{transform:translate(0, -50%)}[aria-label][data-balloon-pos="right"]:hover:before,[aria-label][data-balloon-pos="right"][data-balloon-visible]:before{transform:translate(0, -50%)}[aria-label][data-balloon-length="small"]:after{white-space:normal;width:80px}[aria-label][data-balloon-length="medium"]:after{white-space:normal;width:150px}[aria-label][data-balloon-length="large"]:after{white-space:normal;width:260px}[aria-label][data-balloon-length="xlarge"]:after{white-space:normal;width:380px}@media screen and (max-width: 768px){[aria-label][data-balloon-length="xlarge"]:after{white-space:normal;width:90vw}}[aria-label][data-balloon-length="fit"]:after{white-space:normal;width:100%}</style><style class="darkreader darkreader--sync" media="screen"></style>
+  <script src="./大喵教育前端培训_files/lodash.min.js.下载"></script><script>(function(){class RuffleMimeType{constructor(a,b,c){this.type=a,this.description=b,this.suffixes=c}}class RuffleMimeTypeArray{constructor(a){this.__mimetypes=[],this.__named_mimetypes={};for(let b of a)this.install(b)}install(a){let b=this.__mimetypes.length;this.__mimetypes.push(a),this.__named_mimetypes[a.type]=a,this[a.type]=a,this[b]=a}item(a){return this.__mimetypes[a]}namedItem(a){return this.__named_mimetypes[a]}get length(){return this.__mimetypes.length}}class RufflePlugin extends RuffleMimeTypeArray{constructor(a,b,c,d){super(d),this.name=a,this.description=b,this.filename=c}install(a){a.enabledPlugin||(a.enabledPlugin=this),super.install(a)}}class RufflePluginArray{constructor(a){this.__plugins=[],this.__named_plugins={};for(let b of a)this.install(b)}install(a){let b=this.__plugins.length;this.__plugins.push(a),this.__named_plugins[a.name]=a,this[a.name]=a,this[b]=a}item(a){return this.__plugins[a]}namedItem(a){return this.__named_plugins[a]}get length(){return this.__plugins.length}}const FLASH_PLUGIN=new RufflePlugin("Shockwave Flash","Shockwave Flash 32.0 r0","ruffle.js",[new RuffleMimeType("application/futuresplash","Shockwave Flash","spl"),new RuffleMimeType("application/x-shockwave-flash","Shockwave Flash","swf"),new RuffleMimeType("application/x-shockwave-flash2-preview","Shockwave Flash","swf"),new RuffleMimeType("application/vnd.adobe.flash-movie","Shockwave Flash","swf")]);function install_plugin(a){navigator.plugins.install||Object.defineProperty(navigator,"plugins",{value:new RufflePluginArray(navigator.plugins),writable:!1}),navigator.plugins.install(a),0<a.length&&!navigator.mimeTypes.install&&Object.defineProperty(navigator,"mimeTypes",{value:new RuffleMimeTypeArray(navigator.mimeTypes),writable:!1});for(var b=0;b<a.length;b+=1)navigator.mimeTypes.install(a[b])}install_plugin(FLASH_PLUGIN);})();</script><script src="chrome-extension://kbhmacoflceedigenbcdgcodpnnoljbp/dist/ruffle.js?obfuscatedEventPrefix=rufEvent98834345096"></script><meta name="darkreader" content="e9cb102b3b7e1504cb534209df29b273"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
+    background-color: #7b5300 !important;
+    border-color: #d8b013 !important;
+    color: #f3e8c8 !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+a[href="https://coinmarketcap.com/"] > svg[width="94"][height="16"] > path {
+    fill: var(--darkreader-neutral-text) !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1 {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: #0f3a48 !important;
+}
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style>
+  <script>
+    Object.defineProperty(window, '_', {
+      writable: false,
+      value: _,
+    })
+    Object.freeze(Object.prototype)
+    function getHidingUsers() {
+      try {
+        var hiding_users = JSON.parse(localStorage.hiding_users)
+      } catch(e) {
+        hiding_users = []
+      }
+      return _.uniq(hiding_users)
+    }
+
+    function saveHidingUsers(users) {
+      localStorage.hiding_users = JSON.stringify(_.uniq(users))
+    }
+
+    function blockUser(userName) {
+      console.log(userName)
+      // debugger
+      var hiding_users = getHidingUsers()
+
+      hiding_users.push(userName)
+
+      saveHidingUsers(hiding_users)
+    }
+
+    function forceReload() {
+      for (var key in localStorage) {
+        if (key.startsWith('https:')) {
+          localStorage.removeItem(key)
+        }
+      }
+      location.reload()
+    }
+
+    function unblockUser(userName) {
+      var hiding_users = getHidingUsers()
+      var pos = hiding_users.indexOf(userName)
+
+      if (pos >= 0) {
+        hiding_users.splice(pos, 1)
+      }
+
+      saveHidingUsers(hiding_users)
+    }
+
+    function getImplementerNameFromUrl(url) {
+      var parts = url.split('/')
+      var fileName = parts[parts.length - 1]
+      var customLodashName = fileName.split('-')[0]
+      return customLodashName
+    }
+    function getImplementerNameFromUrl2(url) {
+      return url.split('//')[1].split('.')[0]
+      return customLodashName
+    }
+    function getNickName(url) {
+      var nickName = url.match(/\/\/(.*?)\//)[1]
+      if (nickName)
+        return nickName
+      else
+        return getImplementerNameFromUrl(url)
+    }
+    var project = location.search.substr(1)
+    if (!project) {
+      project = 'lodash'
+    }
+  </script>
+  <script>
+    var hiding_users = getHidingUsers()
+
+    //用户名允许中划线和大小写
+    //后有自动转换
+    var usernames = [
+      ['DevilMayCry555', '刘洋'],
+      ['lilongxiang2000', '李龙翔'],
+      ['q1uwenl0ng', '裘文龙'],
+      ['zxccheng', '张学铖'],
+      ['taitai1118', '杨怡'],
+      ['zntkf', '田凯丰'],
+      ['zhaodonggua', '赵则成'],
+      ['Dwen-Zheng', '郑稳'],
+      ['xst568013550', '许仕涛'],
+      ['leeqingxiao100', '李彪'],
+      ['moqianf', '张家瑞'],
+      ['userbaii', '王柏华'],
+      ['Mmaxiii', '马成龙'],
+      ['linshiqiao', '林施巧'],
+      ['GuJiaNuo', '谷佳诺'],
+      ['meleethine', '李鑫'],
+      ['Zn-Dyi', '姜成義'],
+      ['JJianZ', '冀坚泽'],
+      ['yangyukang9', '阳玉康'],
+      ['mymoonddd', '肖春燕'],
+      ['Crazycat0', '钱春强'],
+      ['xuanzx', '曾璇'],
+      ['juzizhizeihaohe', '徐仲呈'],
+      ['xuzechuan', '许泽川'],
+      ['chaihuibin926', '柴惠滨'],
+      ['NJ-uzi', '杨步森'],
+      ['Rzy666', '任重远'],
+      ['SK8DP', '关志超'],
+      ['sx1934255748', '孙振鹏'],
+      ['yyayy99', '杨卫军'],
+      ['Tablezhuozhuo', '卓琴菁'],
+      ['Majula1999', '刘恒'],
+      ['DaoJun714298211', '卢晓斌'],
+      ['Edceechen', '姜琉译'],
+      ['jk378', '金凯'],
+      ['wangyingtian23', '王龙'],
+      ['Ropzgod', '刘志宏'],
+      ['ctrlz0506', '谭超凡'],
+      ['renzhuangtao', '任壮涛'],
+      ['ZhaoDaD', '赵达'],
+      ['YeXingYuShi', '宋潇越'],
+      ['qiaozhengrui', '乔正瑞'],
+      ['dajige', '吉浩元'],
+      ['wuxun1995', '吴讯'],
+      ['Aby970110', '李启锟'],
+      ['yuan4li', '袁莉'],
+      ['ledao246', '赖子轩'],
+      ['chuyueye', '黄天宇'],
+      ['gitxsfh', '姚雄'],
+      ['serene-ding', 'Serene'],
+      ['jxiansen', 'j先森'],
+      ['xiaomandai', '代小满'],
+      ['yandrewding', 'dzy'],
+      ['likaorou', '李玉鹏'],
+      ['curryth', '唐宏'],
+      ['licheng067', '李诚'],
+      ['weakerey', 'zwk'],
+      ['lanlanranranlanlan', 'mz'],
+      ['cc-code-chan', '行川'],
+      ['wqxxxx', '翁琼霞'],
+    ].concat(
+      getLocalUsers()
+    )
+
+    function getLocalUsers() {
+      var field = localStorage.getItem('lodashOnlineJudgeLocalUser')
+      if (!field) {
+        return []
+      }
+      try {
+        var ary = JSON.parse(field)
+        if (Array.isArray(ary)) {
+          return ary
+        } else {
+          return []
+        }
+      } catch(e) {
+        return []
+      }
+    }
+
+    function addUser(githubUsername, name) {
+      var localUsers = getLocalUsers()
+      localUsers.push([githubUsername, name])
+      localStorage.setItem('lodashOnlineJudgeLocalUser', JSON.stringify(localUsers))
+    }
+
+    function clearLocalUsers() {
+      localStorage.setItem('lodashOnlineJudgeLocalUser', '[]')
+      alert('ok')
+    }
+
+    function addUserUI() {
+      var githubUsername = prompt('请输入github用户名')
+      var name = prompt('请输入姓名')
+      addUser(githubUsername, name)
+      alert('添加成功，请自行刷新页面')
+    }
+
+
+
+    var nameByNickname = usernames.reduce((map, pair) => {
+      map[pair[0].toLowerCase().replace(/\-/g, '_')] = pair[1]
+      return map
+    }, {})
+
+    implementations = usernames
+    // .filter((it, i) => {
+    //   return i < 10
+    // })
+    .sort((a, b) => {//按姓名拼音序排序
+      return a[0].toLowerCase() > b[0].toLowerCase() ? 1 : -1
+    })
+    .map((it, index) => {//在it[2]里放入变量名和文件名（同名）
+      it[2] = it[0].toLowerCase().replace(/-/g, '_')
+      it.push(index)
+      return it
+    })
+    .filter(it => {//过滤掉那些不显示的
+      return hiding_users.indexOf(it[2]) === -1
+    })
+    // .filter(it => it[0] === 'liuyiliuyi')
+    .map((it) => {
+      return {
+        url: `https://${it[0]}.github.io/miao/lodash/${it[2]}-${project}.js`,
+        index: it[3],
+      }
+    })
+    .filter(it=>it.url)//过滤出有提供url的部分，这样比较好删一些
+    // .filter(it=>it.url.indexOf('XieDaMiao')>0)//用于调bug时把人数降为1
+    // implementations.unshift({url: `https://xieranmaya.github.io/fe-training/projects/lodash-tester/demo/XieDaMiao-${project}.js`})
+  </script>
+  <script src="./大喵教育前端培训_files/core-fn-list.js.下载"></script>
+  <!-- <script src="libs/test-cases-by-hand.js"></script> -->
+  <script src="./大喵教育前端培训_files/test-cases-by-hand.js.下载"></script>
+  <script src="./大喵教育前端培训_files/auto-test-case.js.下载"></script>
+  <script>
+    //合并人肉整理的测试用例与自动整理的部分
+    _.forOwn(testCasesByHand, function(value, key, obj) {
+      if (key == 'join') {
+        // debugger
+      }
+      if (testCases[key]) {
+        testCases[key] = testCases[key].concat(testCasesByHand[key])
+      } else {
+        testCases[key] = testCasesByHand[key]
+      }
+    })
+  </script>
+  <script type="notrun" data-comment="用于测试时把测试的函数个数降为1">
+    testCases = {
+      filter: testCases.filter
+    }
+  </script>
+  <script src="./大喵教育前端培训_files/extra-fn-test-cases.js.下载"></script>
+<link href="chrome-extension://iihgchombimnadbbapofogflgbifgbgl/content/css/jlzs.css" rel="stylesheet" type="text/css"><style class="darkreader darkreader--sync" media="screen"></style><link href="chrome-extension://iihgchombimnadbbapofogflgbifgbgl/content/css/select.css" rel="stylesheet" type="text/css"><style class="darkreader darkreader--sync" media="screen"></style><link href="chrome-extension://iihgchombimnadbbapofogflgbifgbgl/content/css/input.css" rel="stylesheet" type="text/css"><style class="darkreader darkreader--sync" media="screen"></style><link href="chrome-extension://iihgchombimnadbbapofogflgbifgbgl/content/css/checkbox.css" rel="stylesheet" type="text/css"><style class="darkreader darkreader--sync" media="screen"></style></head>
+<body>
+  <h1>大喵教育前端培训 Lodash 实践项目实时状态</h1>
+  <section style="display: flex;font-size: x24px;">
+    <pre style="flex: 1;">      # 注意事项
+
+      * 刷lodash是加深对js的理解
+      * 刷leetcode是锻炼编程能力
+      * 不要使用转换为字符串再转回去的办法实现任何函数
+      * 文档中示例代码及注释不能完全看懂的先别做
+      * 整条全黄的话会有错误原因的告知，hover查看并修改即可
+      * 没有更新的话Ctrl+F5强刷即可
+      * 一般来说如非题目要求，不要修改函数的输入，而是返回新的值，即实现为纯函数
+
+      * 用户名不要以数字开头，以数字开头的同学请至github更改用户名，不用重新注册
+      * 文件名中最好不要包含中划线，如果包含中划线，请将中划线换为下划线然后做为变量名及文件名的前缀
+      * 文件名(&lt;username&gt;-lodash.js)全小写，用户名与'lodash'之间的分隔符为中划线
+      * 文件中的变量名全小写: var foobar = {chunk: function(){}}
+    </pre>
+    <div style="flex: 1;display: flex; flex-flow: column wrap; max-height: 250px;">
+      <span>以下用户被隐藏显示，勾选以取消（刷新生效）</span>
+
+      <script>
+        var hiding_users
+
+        try {
+          hiding_users = JSON.parse(localStorage.hiding_users)
+        } catch(e) {
+          hiding_users = []
+        }
+
+        hiding_users.forEach(user => {
+          document.write(`
+            <div>
+              <input type="checkbox" value="${user}" onclick="unblockUser(this.value)" /> ${user}
+            </div>
+          `)
+        })
+      </script>
+            <div>
+              <input type="checkbox" value="aby970110" onclick="unblockUser(this.value)"> aby970110
+            </div>
+          
+            <div>
+              <input type="checkbox" value="cc_code_chan" onclick="unblockUser(this.value)"> cc_code_chan
+            </div>
+          
+            <div>
+              <input type="checkbox" value="chaihuibin926" onclick="unblockUser(this.value)"> chaihuibin926
+            </div>
+          
+            <div>
+              <input type="checkbox" value="chuyueye" onclick="unblockUser(this.value)"> chuyueye
+            </div>
+          
+            <div>
+              <input type="checkbox" value="crazycat0" onclick="unblockUser(this.value)"> crazycat0
+            </div>
+          
+            <div>
+              <input type="checkbox" value="ctrlz0506" onclick="unblockUser(this.value)"> ctrlz0506
+            </div>
+          
+            <div>
+              <input type="checkbox" value="curryth" onclick="unblockUser(this.value)"> curryth
+            </div>
+          
+            <div>
+              <input type="checkbox" value="dajige" onclick="unblockUser(this.value)"> dajige
+            </div>
+          
+            <div>
+              <input type="checkbox" value="daojun714298211" onclick="unblockUser(this.value)"> daojun714298211
+            </div>
+          
+            <div>
+              <input type="checkbox" value="devilmaycry555" onclick="unblockUser(this.value)"> devilmaycry555
+            </div>
+          
+            <div>
+              <input type="checkbox" value="dwen_zheng" onclick="unblockUser(this.value)"> dwen_zheng
+            </div>
+          
+            <div>
+              <input type="checkbox" value="edceechen" onclick="unblockUser(this.value)"> edceechen
+            </div>
+          
+            <div>
+              <input type="checkbox" value="gitxsfh" onclick="unblockUser(this.value)"> gitxsfh
+            </div>
+          
+            <div>
+              <input type="checkbox" value="gujianuo" onclick="unblockUser(this.value)"> gujianuo
+            </div>
+          
+            <div>
+              <input type="checkbox" value="jjianz" onclick="unblockUser(this.value)"> jjianz
+            </div>
+          
+            <div>
+              <input type="checkbox" value="jk378" onclick="unblockUser(this.value)"> jk378
+            </div>
+          
+            <div>
+              <input type="checkbox" value="juzizhizeihaohe" onclick="unblockUser(this.value)"> juzizhizeihaohe
+            </div>
+          
+            <div>
+              <input type="checkbox" value="jxiansen" onclick="unblockUser(this.value)"> jxiansen
+            </div>
+          
+            <div>
+              <input type="checkbox" value="lanlanranranlanlan" onclick="unblockUser(this.value)"> lanlanranranlanlan
+            </div>
+          
+            <div>
+              <input type="checkbox" value="ledao246" onclick="unblockUser(this.value)"> ledao246
+            </div>
+          
+            <div>
+              <input type="checkbox" value="leeqingxiao100" onclick="unblockUser(this.value)"> leeqingxiao100
+            </div>
+          
+            <div>
+              <input type="checkbox" value="licheng067" onclick="unblockUser(this.value)"> licheng067
+            </div>
+          
+            <div>
+              <input type="checkbox" value="likaorou" onclick="unblockUser(this.value)"> likaorou
+            </div>
+          
+            <div>
+              <input type="checkbox" value="lilongxiang2000" onclick="unblockUser(this.value)"> lilongxiang2000
+            </div>
+          
+            <div>
+              <input type="checkbox" value="linshiqiao" onclick="unblockUser(this.value)"> linshiqiao
+            </div>
+          
+            <div>
+              <input type="checkbox" value="majula1999" onclick="unblockUser(this.value)"> majula1999
+            </div>
+          
+            <div>
+              <input type="checkbox" value="meleethine" onclick="unblockUser(this.value)"> meleethine
+            </div>
+          
+            <div>
+              <input type="checkbox" value="mmaxiii" onclick="unblockUser(this.value)"> mmaxiii
+            </div>
+          
+            <div>
+              <input type="checkbox" value="moqianf" onclick="unblockUser(this.value)"> moqianf
+            </div>
+          
+            <div>
+              <input type="checkbox" value="mymoonddd" onclick="unblockUser(this.value)"> mymoonddd
+            </div>
+          
+            <div>
+              <input type="checkbox" value="nj_uzi" onclick="unblockUser(this.value)"> nj_uzi
+            </div>
+          
+            <div>
+              <input type="checkbox" value="q1uwenl0ng" onclick="unblockUser(this.value)"> q1uwenl0ng
+            </div>
+          
+            <div>
+              <input type="checkbox" value="qiaozhengrui" onclick="unblockUser(this.value)"> qiaozhengrui
+            </div>
+          
+            <div>
+              <input type="checkbox" value="renzhuangtao" onclick="unblockUser(this.value)"> renzhuangtao
+            </div>
+          
+            <div>
+              <input type="checkbox" value="ropzgod" onclick="unblockUser(this.value)"> ropzgod
+            </div>
+          
+            <div>
+              <input type="checkbox" value="rzy666" onclick="unblockUser(this.value)"> rzy666
+            </div>
+          
+            <div>
+              <input type="checkbox" value="serene_ding" onclick="unblockUser(this.value)"> serene_ding
+            </div>
+          
+            <div>
+              <input type="checkbox" value="sk8dp" onclick="unblockUser(this.value)"> sk8dp
+            </div>
+          
+            <div>
+              <input type="checkbox" value="sx1934255748" onclick="unblockUser(this.value)"> sx1934255748
+            </div>
+          
+            <div>
+              <input type="checkbox" value="tablezhuozhuo" onclick="unblockUser(this.value)"> tablezhuozhuo
+            </div>
+          
+            <div>
+              <input type="checkbox" value="taitai1118" onclick="unblockUser(this.value)"> taitai1118
+            </div>
+          
+            <div>
+              <input type="checkbox" value="userbaii" onclick="unblockUser(this.value)"> userbaii
+            </div>
+          
+            <div>
+              <input type="checkbox" value="wangyingtian23" onclick="unblockUser(this.value)"> wangyingtian23
+            </div>
+          
+            <div>
+              <input type="checkbox" value="weakerey" onclick="unblockUser(this.value)"> weakerey
+            </div>
+          
+            <div>
+              <input type="checkbox" value="wqxxxx" onclick="unblockUser(this.value)"> wqxxxx
+            </div>
+          
+            <div>
+              <input type="checkbox" value="xiaomandai" onclick="unblockUser(this.value)"> xiaomandai
+            </div>
+          
+            <div>
+              <input type="checkbox" value="wuxun1995" onclick="unblockUser(this.value)"> wuxun1995
+            </div>
+          
+            <div>
+              <input type="checkbox" value="xst568013550" onclick="unblockUser(this.value)"> xst568013550
+            </div>
+          
+            <div>
+              <input type="checkbox" value="xuanzx" onclick="unblockUser(this.value)"> xuanzx
+            </div>
+          
+            <div>
+              <input type="checkbox" value="yandrewding" onclick="unblockUser(this.value)"> yandrewding
+            </div>
+          
+            <div>
+              <input type="checkbox" value="xuzechuan" onclick="unblockUser(this.value)"> xuzechuan
+            </div>
+          
+            <div>
+              <input type="checkbox" value="yangyukang9" onclick="unblockUser(this.value)"> yangyukang9
+            </div>
+          
+            <div>
+              <input type="checkbox" value="yexingyushi" onclick="unblockUser(this.value)"> yexingyushi
+            </div>
+          
+            <div>
+              <input type="checkbox" value="yuan4li" onclick="unblockUser(this.value)"> yuan4li
+            </div>
+          
+            <div>
+              <input type="checkbox" value="yyayy99" onclick="unblockUser(this.value)"> yyayy99
+            </div>
+          
+            <div>
+              <input type="checkbox" value="zhaodad" onclick="unblockUser(this.value)"> zhaodad
+            </div>
+          
+            <div>
+              <input type="checkbox" value="zhaodonggua" onclick="unblockUser(this.value)"> zhaodonggua
+            </div>
+          
+            <div>
+              <input type="checkbox" value="zn_dyi" onclick="unblockUser(this.value)"> zn_dyi
+            </div>
+          
+            <div>
+              <input type="checkbox" value="zntkf" onclick="unblockUser(this.value)"> zntkf
+            </div>
+          
+            <div>
+              <input type="checkbox" value="zxccheng" onclick="unblockUser(this.value)"> zxccheng
+            </div>
+          
+    </div>
+  </section>
+  <div style="text-align: right">
+    <button onclick="addUserUI()">里面没我，点击添加</button>
+    <button onclick="clearLocalUsers()">清空已添加的本地用户</button>
+    <button onclick="forceReload()">强制刷新</button>
+  </div>
+  <table class="result-table show" data-comment="这个表格为sticky标题行">
+    <tbody>
+      <tr>
+        <th>0</th>
+        <script>
+          implementations.forEach(it => {
+            document.write(`<th>${it.index+1}</th>`)
+          })
+        </script>
+      </tr>
+      <tr class="username-row">
+        <th><a target="_blank" href="https://lodash.com/docs/" title="点击直达文档首页">函数名</a></th>
+        <script>
+          implementations.forEach(it => {
+            document.write(`
+              <th data-balloon-pos="left" aria-label="${nameByNickname[getImplementerNameFromUrl(it.url)]}">
+              <a target="_blank" href="${it.url}">${getImplementerNameFromUrl(it.url)}</a>
+              </th>
+            `)
+          })
+        </script>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="result-table">
+    <tbody id="result-body">
+      <tr>
+        <th title="打上勾的刷新后将不再显示（仅本机有效，可恢复）">勾上不看</th>
+        <script>
+          implementations.forEach((it, index) => {
+            document.write(`<th><input type="checkbox" value="${getImplementerNameFromUrl(it.url)}" onclick="blockUser(this.value)" /></th>`)
+          })
+        </script>
+      </tr>
+      <tr>
+        <th>0</th>
+        <script>
+          implementations.forEach(it => {
+            document.write(`<th>${it.index+1}</th>`)
+          })
+        </script>
+      </tr>
+      <tr class="username-row">
+        <th><a target="_blank" href="https://lodash.com/docs/" title="点击直达文档首页">函数名</a></th>
+        <script>
+          implementations.forEach(it => {
+            document.write(`
+              <th aria-label="${nameByNickname[getImplementerNameFromUrl(it.url)]}/${getImplementerNameFromUrl(it.url)}">
+              <a target="_blank" href="${it.url}">${getImplementerNameFromUrl(it.url)}</a>
+              </th>
+            `)
+          })
+        </script>
+      </tr>
+    
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#chunk">
+                  chunk
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#compact">
+                  compact
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#difference">
+                  difference
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#differenceBy">
+                  differenceBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#differenceWith">
+                  differenceWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#drop">
+                  drop
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#dropRight">
+                  dropRight
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#dropRightWhile">
+                  dropRightWhile
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#dropWhile">
+                  dropWhile
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#fill">
+                  fill
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#findIndex">
+                  findIndex
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#findLastIndex">
+                  findLastIndex
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#flatten">
+                  flatten
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#flattenDeep">
+                  flattenDeep
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#flattenDepth">
+                  flattenDepth
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#fromPairs">
+                  fromPairs
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#head">
+                  head
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#indexOf">
+                  indexOf
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#initial">
+                  initial
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#intersection">
+                  intersection
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#intersectionBy">
+                  intersectionBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#intersectionWith">
+                  intersectionWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#join">
+                  join
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#last">
+                  last
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#lastIndexOf">
+                  lastIndexOf
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#nth">
+                  nth
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#pull">
+                  pull
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#pullAll">
+                  pullAll
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#pullAllBy">
+                  pullAllBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#pullAllWith">
+                  pullAllWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#reverse">
+                  reverse
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#sortedIndex">
+                  sortedIndex
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#sortedIndexBy">
+                  sortedIndexBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#sortedIndexOf">
+                  sortedIndexOf
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#sortedLastIndex">
+                  sortedLastIndex
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#sortedLastIndexBy">
+                  sortedLastIndexBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#sortedLastIndexOf">
+                  sortedLastIndexOf
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#sortedUniq">
+                  sortedUniq
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#sortedUniqBy">
+                  sortedUniqBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#tail">
+                  tail
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#take">
+                  take
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#takeRight">
+                  takeRight
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#takeRightWhile">
+                  takeRightWhile
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#takeWhile">
+                  takeWhile
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#union">
+                  union
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#unionBy">
+                  unionBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#unionWith">
+                  unionWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#uniq">
+                  uniq
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#uniqBy">
+                  uniqBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#uniqWith">
+                  uniqWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#unzip">
+                  unzip
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#unzipWith">
+                  unzipWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#without">
+                  without
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#xor">
+                  xor
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#xorBy">
+                  xorBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#xorWith">
+                  xorWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#zip">
+                  zip
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#zipObject">
+                  zipObject
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#zipObjectDeep">
+                  zipObjectDeep
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#zipWith">
+                  zipWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#countBy">
+                  countBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#every">
+                  every
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#filter">
+                  filter
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#find">
+                  find
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#findLast">
+                  findLast
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#flatMap">
+                  flatMap
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#flatMapDeep">
+                  flatMapDeep
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#flatMapDepth">
+                  flatMapDepth
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#forEach">
+                  forEach
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#forEachRight">
+                  forEachRight
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#groupBy">
+                  groupBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#includes">
+                  includes
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#invokeMap">
+                  invokeMap
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#keyBy">
+                  keyBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#map">
+                  map
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#orderBy">
+                  orderBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#partition">
+                  partition
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#reduce">
+                  reduce
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#reduceRight">
+                  reduceRight
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#reject">
+                  reject
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#sample">
+                  sample
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#sampleSize">
+                  sampleSize
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#shuffle">
+                  shuffle
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#size">
+                  size
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#some">
+                  some
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#sortBy">
+                  sortBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#defer">
+                  defer
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#delay">
+                  delay
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#castArray">
+                  castArray
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#conformsTo">
+                  conformsTo
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#eq">
+                  eq
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#gt">
+                  gt
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#gte">
+                  gte
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isArguments">
+                  isArguments
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isArray">
+                  isArray
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isArrayBuffer">
+                  isArrayBuffer
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isArrayLike">
+                  isArrayLike
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isArrayLikeObject">
+                  isArrayLikeObject
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isBoolean">
+                  isBoolean
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isDate">
+                  isDate
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isElement">
+                  isElement
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isEmpty">
+                  isEmpty
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isEqual">
+                  isEqual
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isEqualWith">
+                  isEqualWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isError">
+                  isError
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isFinite">
+                  isFinite
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isFunction">
+                  isFunction
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isInteger">
+                  isInteger
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isLength">
+                  isLength
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isMap">
+                  isMap
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isMatch">
+                  isMatch
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isMatchWith">
+                  isMatchWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isNaN">
+                  isNaN
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isNative">
+                  isNative
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isNil">
+                  isNil
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isNull">
+                  isNull
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isNumber">
+                  isNumber
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isObject">
+                  isObject
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isObjectLike">
+                  isObjectLike
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isPlainObject">
+                  isPlainObject
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isRegExp">
+                  isRegExp
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isSafeInteger">
+                  isSafeInteger
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isSet">
+                  isSet
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isString">
+                  isString
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isSymbol">
+                  isSymbol
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isTypedArray">
+                  isTypedArray
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isUndefined">
+                  isUndefined
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isWeakMap">
+                  isWeakMap
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#isWeakSet">
+                  isWeakSet
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#lt">
+                  lt
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#lte">
+                  lte
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#toArray">
+                  toArray
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#toFinite">
+                  toFinite
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#toInteger">
+                  toInteger
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#toLength">
+                  toLength
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#toNumber">
+                  toNumber
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#assign">
+                  assign
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#toSafeInteger">
+                  toSafeInteger
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#add">
+                  add
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#ceil">
+                  ceil
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#divide">
+                  divide
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#floor">
+                  floor
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#max">
+                  max
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#maxBy">
+                  maxBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#mean">
+                  mean
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#meanBy">
+                  meanBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#min">
+                  min
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#minBy">
+                  minBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#multiply">
+                  multiply
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#round">
+                  round
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#subtract">
+                  subtract
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#sum">
+                  sum
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#sumBy">
+                  sumBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#clamp">
+                  clamp
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#inRange">
+                  inRange
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#random">
+                  random
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#assignIn">
+                  assignIn
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#at">
+                  at
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#defaults">
+                  defaults
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#defaultsDeep">
+                  defaultsDeep
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#findKey">
+                  findKey
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#findLastKey">
+                  findLastKey
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#forIn">
+                  forIn
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#forInRight">
+                  forInRight
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#forOwn">
+                  forOwn
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#forOwnRight">
+                  forOwnRight
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#functions">
+                  functions
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#functionsIn">
+                  functionsIn
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#get">
+                  get
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#has">
+                  has
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#hasIn">
+                  hasIn
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#invert">
+                  invert
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#invertBy">
+                  invertBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#invoke">
+                  invoke
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#keys">
+                  keys
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#keysIn">
+                  keysIn
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#mapKeys">
+                  mapKeys
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#mapValues">
+                  mapValues
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#merge">
+                  merge
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#mergeWith">
+                  mergeWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#omit">
+                  omit
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#omitBy">
+                  omitBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#pick">
+                  pick
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#pickBy">
+                  pickBy
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#result">
+                  result
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#set">
+                  set
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#setWith">
+                  setWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#toPairs">
+                  toPairs
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#toPairsIn">
+                  toPairsIn
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#transform">
+                  transform
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#unset">
+                  unset
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#update">
+                  update
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#updateWith">
+                  updateWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#values">
+                  values
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#valuesIn">
+                  valuesIn
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#camelCase">
+                  camelCase
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#capitalize">
+                  capitalize
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#deburr">
+                  deburr
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#endsWith">
+                  endsWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#escape">
+                  escape
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#escapeRegExp">
+                  escapeRegExp
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#kebabCase">
+                  kebabCase
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#lowerCase">
+                  lowerCase
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#lowerFirst">
+                  lowerFirst
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#pad">
+                  pad
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#padEnd">
+                  padEnd
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#padStart">
+                  padStart
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#parseInt">
+                  parseInt
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#repeat">
+                  repeat
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#replace">
+                  replace
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#snakeCase">
+                  snakeCase
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#split">
+                  split
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#startCase">
+                  startCase
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#startsWith">
+                  startsWith
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#toLower">
+                  toLower
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#toUpper">
+                  toUpper
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#trim">
+                  trim
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#trimEnd">
+                  trimEnd
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#trimStart">
+                  trimStart
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#truncate">
+                  truncate
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#unescape">
+                  unescape
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#upperCase">
+                  upperCase
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#upperFirst">
+                  upperFirst
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#words">
+                  words
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#bindAll">
+                  bindAll
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#defaultTo">
+                  defaultTo
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#range">
+                  range
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#rangeRight">
+                  rangeRight
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#mixin">
+                  mixin
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#times">
+                  times
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#toPath">
+                  toPath
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#uniqueId">
+                  uniqueId
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#cloneDeep">
+                  cloneDeep
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#identity">
+                  identity
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#concat">
+                  concat
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#pullAt">
+                  pullAt
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#matches">
+                  matches
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#property">
+                  property
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#ary">
+                  ary
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#unary">
+                  unary
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#negate">
+                  negate
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#once">
+                  once
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#spread">
+                  spread
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#curry">
+                  curry
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#memoize">
+                  memoize
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#flip">
+                  flip
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#conforms">
+                  conforms
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#constant">
+                  constant
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#flow">
+                  flow
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#method">
+                  method
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#methodOf">
+                  methodOf
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#nthArg">
+                  nthArg
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="core-fns">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#propertyOf">
+                  propertyOf
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#parseJson">
+                  parseJson
+                </a>
+              </th>
+              
+            </tr>
+          
+            <tr>
+              <th class="">
+                <a title="undefined" target="_blank" href="https://lodash.com/docs/#stringifyJson">
+                  stringifyJson
+                </a>
+              </th>
+              
+            </tr>
+          </tbody>
+  </table>
+  <span id="loading-status" style="display: none;">正在给代码穿女装...</span>
+
+<script src="./大喵教育前端培训_files/jquery-3.1.1.min.js.下载"></script>
+<script src="./大喵教育前端培训_files/beautify.js.下载"></script>
+<script src="./大喵教育前端培训_files/babel-parser.js.下载"></script>
+<script src="./大喵教育前端培训_files/tester.js.下载"></script>
+<script>
+$(function() {
+  $(window).on('scroll', _.throttle(function(){
+    if (window.scrollY > 135) {
+      $("table:first-of-type").addClass('show')
+    } else {
+      $("table:first-of-type").removeClass('show')
+    }
+  },100))
+
+  $('#result-body').on('mouseenter', 'td[data-result]', function(e) {
+    var id = setTimeout(() => {
+      var pre = document.createElement('pre')
+      pre.textContent = this.dataset.result
+      pre.style.position = 'absolute'
+      pre.style.display = 'block'
+      hljs.highlightBlock(pre)
+      this.append(pre)
+    }, 300)
+
+    $(this).data('id', id)
+
+  }).on('mouseleave', 'td[data-result]', function(e) {
+    var fix = $(this).data('fix')
+    if (!fix) {
+      var id = $(this).data('id')
+      clearTimeout(id)
+      $(this).find('pre').remove()
+    }
+  }).on('click', 'td[data-result]', function(e) {
+    var fix = $(this).toggleClass('active').data('fix')
+    fix = !fix
+    $(this).data('fix', fix)
+  })
+
+  // debugger
+  var customLodashNames = implementations
+    .filter(it => it.url)
+    .map(it => it.url)
+    .map(getImplementerNameFromUrl)
+
+  console.log(customLodashNames)
+
+  var loaded = 0
+
+  console.time('loading all')
+  Promise.all(
+    implementations.map(it => {
+      console.time(it.url)
+      return loadScript(it.url).then(() => {
+        console.timeEnd(it.url)
+        loaded++
+        updateLoadingStatus(loaded)
+      })
+    })
+  ).then(it => {
+    console.timeEnd('loading all')
+  })
+  //加载并执行所有的代码
+    .then(function() {//所有实现都加载完成了
+      var timeout = 0;//让setTimeout顺次执行
+      var timegap = 32;//每个之间的间隔时间，最终就是setTimeout(fn, timeout++*timegap)
+      var customLodashs = customLodashNames.map(name=>window[name])
+      // _.forOwn(_, function(fn, methodName) {// 开始测某一个方法是否正确，按方法在lodash里面出现的顺序测
+      var progress = 0
+      Object.keys(testCases).forEach((methodName, index, cases) => {// 按照testCases里面的顺序测试
+        setTimeout(function() {
+          let fn = _[methodName]
+          let testResult//测试结果
+          let customFunctions//所有人自己实现的函数
+          // debugger
+          customFunctions = customLodashNames.map(name=>window[name][methodName])
+          testResult = customFunctions.map((customFunction,index) => {
+            return test(
+              customFunction,//被测试的函数
+              customLodashs[index],//被测试的函数的上下文
+              testCases[methodName],//针对一个函数的多条测试数据
+              _[methodName],//基准函数，以它的返回值为准
+              _//基准函数的上下文，注意这里不是obj，没有多余的逗号。。
+            )
+          })
+          // testResult为某一个函数对所有测试数据的测试结果
+          // console.log(methodName, testResult)
+          var row = testResult.map(result => {
+            //result是某一个人的某一个函数的在不同测试数据下的测试结果集合
+            //为数组，如果为null，则表示未实现
+            if (result) {
+              return {
+                text: result.map(oneCaseResult => {
+                  if (oneCaseResult.pass === true) {
+                    return `输入：${oneCaseResult.input}\n输出/期望：${oneCaseResult.output}`
+                  } else if (oneCaseResult.type == 'WrongAnswer') {
+                    return `输入：${oneCaseResult.input}\n输出：${oneCaseResult.output}\n期望：${oneCaseResult.expect}`
+                  } else if (oneCaseResult.type == 'SyntaxError') {
+                    return `错误：${oneCaseResult.error}\n`
+                  } else if (oneCaseResult.type == 'InfiniteLoop') {
+                    return `错误：死循环\n输入：${oneCaseResult.input}`
+                  }
+                  return `错误：${oneCaseResult.error}\n输入：${oneCaseResult.input}\n期望：${oneCaseResult.expect}`
+                }).join('\n=================\n')+`\n\n源码：\n${result[0].source}`,
+                status: result.every(it => it.pass) ? '通过' : '未通过',
+                type: result[0].type,
+                result: result,
+                passCount: result.filter(it=>it.pass).length,
+                unpassCount: result.filter(it=>!it.pass).length,
+              }
+            } else {
+              return {
+                status: '未实现',
+                text: '未实现',
+              }
+            }
+          }).map(result => {
+            // console.log('result',result)
+            // if (result.type == 'SyntaxError') {
+            //   return `<td class="syntax-error" title="${result[0].result.error}">语法错误</td>`
+            // }
+            if (result.status == '通过') {
+              return `<td class="pass" tabindex="-1" title="点击可固定代码段" data-result="${result.text}">${result.passCount}/${result.unpassCount+result.passCount}</td>`
+            } else if(result.status == '未通过') {
+              return `<td class="unpass" tabindex="-1" title="点击可固定代码段" data-result="${result.text}">${result.passCount}/${result.unpassCount+result.passCount}</td>`
+            } else {
+              return `<td class="unimplemented"></td>`
+            }
+          })
+          row = `
+            <tr>
+              <th class="${coreFns.includes(methodName) ? 'core-fns' : ''}">
+                <a
+                  title="${testCases[methodName].description}"
+                  target="_blank"
+                  href="https://lodash.com/docs/#${methodName}"
+                >
+                  ${methodName}
+                </a>
+              </th>
+              ${row.join('')}
+            </tr>
+          `
+          // console.log('row',row)
+          $('#result-body')
+            .append(row)
+            .find('pre code')
+            .each(function(i, block) {
+              // setTimeout(function() {
+              //   hljs.highlightBlock(block);
+              // }, 2e4)
+            });
+
+          progress++
+          updateLoadingStatus(progress, cases.length)
+          if (index === cases.length - 1) {
+            let el = document.querySelector('#loading-status')
+            el.style.display = 'block'
+            el.innerHTML = '正在给代码穿女装...'
+            setTimeout(function(){//这里不延迟的话是看不到效果的，因为下面的代码全是同步的
+              $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+              });
+              el.style.display = 'none'
+            })
+          }
+        }, timeout++*timegap)
+      })
+    })
+})
+
+function updateLoadingStatus(loadedCount, total = implementations.length){
+  var el = document.querySelector('#loading-status')
+  if (loadedCount === total) {
+    el.style.display = 'none'
+  } else {
+    el.style.display = 'block'
+    el.innerHTML = `${loadedCount} / ${total}`
+  }
+}
+
+/**
+ * 从线上下载并将代码保存到localStorage里
+ * @param  {String} src 需要下载的代码的URL
+ * @return {Promise<String>}     反回得到的代码文本内容
+ */
+function getAndSaveCode(src) {
+  return fetch(src).then(res => {
+    if (res.status !== 200) {
+      throw new Error('404')
+    }
+    return res.text().then(code => {
+      localStorage[src] = `//${Date.now()}\n` + code
+      return code
+    })
+  }).catch(e => {
+    var codeName = getImplementerNameFromUrl(src)
+    return `window['${codeName}'] = {}`
+  })
+}
+
+/**
+ * 加载，检查，并执行代码
+ * @param  {[type]} src [description]
+ * @return {[type]}     [description]
+ */
+function loadScript(src) {
+  return Promise.resolve().then(function(){
+    if (localStorage[src]) {
+      var code = localStorage[src]
+      var timestamp = +code.substr(2, 13)
+
+      if (timestamp) {
+        if (Date.now() - timestamp < 60 * 1000 * 10) {
+          return code.slice(15)
+        }
+      }
+
+      getAndSaveCode(src)
+      return code.slice(15)
+    } else {
+      return getAndSaveCode(src)
+    }
+  }).then(code => {
+    var codeName = getImplementerNameFromUrl(src)
+    // code = (code).replace(`var ${codeName}`, `window.${codeName}`)
+    code = infiniteLoopDetector.wrap(code)
+    code = code.replace(/debugger/g, '/*debugger*/')
+    code = code + `\n//# sourceURL=${codeName}-lodash.js`
+    window['code' + codeName] = code
+    var globalEval = eval//这么做了是为让eval把代码放在分局作用域执行
+    try {
+      if (code.trim() == '') {
+        throw {
+          code: 'BLANK_CODE',
+          stack: '你提交了空白代码？'
+        }
+      }
+      console.time('parse')
+      babelParser.parse(code)//如果没有语法错误，这行将会正常走过
+      console.timeEnd('parse')//测试发现这个时间是相当久的，在20ms的数量级
+
+      console.time('runcode')
+      globalEval(code)
+      console.timeEnd('runcode')
+
+      if (!(codeName in window)) {
+        throw {
+          code: 'VAR_NAME_ERROR',
+          stack: '执行代码后未检测到以用户名命名的变量，请检查你的变量名，应与用户名相同并且用下划线替换中划线，且全小写'
+        }
+      }
+      if (!window[codeName]) {
+        throw {
+          code: 'VAR_NAME_ERROR',
+          stack: '以用户名命名的变量未指向一个有意义的对象，请检查你的代码'
+        }
+      }
+      return
+    } catch(e) {
+      // debugger
+      //如果出了错再在这里用esprima解析具体的错误行以便提示，这样就不用每段代码都用esp解析了，TODO
+      var Lodash = {}
+      console.log(e)
+      var syntaxErrorFn = function() {
+        if (e.loc) {
+          throw {
+            type: 'SyntaxError',
+            word: '语法错误',
+            error: `Line ${e.loc.line}: ${e.message}`,
+            source: code.split('\n')[e.loc.line - 1],
+          }
+        } else {
+          if (e.code == 'BLANK_CODE') {
+            throw {
+              type: 'SyntaxError',
+              word: '你提交了空白代码',
+              error: `${e.message}\n${e.stack}`,
+              source: '',
+            }
+          }
+          if (e.code == 'VAR_NAME_ERROR') {
+            throw {
+              type: 'SyntaxError',
+              word: '变量名错误',
+              error: `${e.message}\n${e.stack}`,
+              source: code,
+            }
+          }
+
+          throw {
+            type: 'SyntaxError',
+            word: '语法错误',
+            error: `${e.message}\n${e.stack}`,
+            source: code,
+          }
+        }
+      }
+      Lodash.chunk = syntaxErrorFn
+      // Object.keys(testCases).forEach(methodName => {Lodash[methodName] = syntaxErrorFn})
+      window[codeName] = Lodash
+    }
+  })
+
+  // return new Promise(function(resolve, reject) {
+  //   var script = document.createElement('script')
+  //   script.src = src
+  //   document.body.appendChild(script)
+  //   script.onload = resolve
+  //   script.onerror = function(e) {
+  //     console.log(e)
+  //     resolve()
+  //   }
+  // })
+}
+</script>
+<script src="./大喵教育前端培训_files/infiniteLoopDetecter.js.下载"></script>
+<script src="./大喵教育前端培训_files/highlight.min.js.下载"></script>
+
+<div class="xl-chrome-ext-bar" id="xl_chrome_ext_{4DB361DE-01F7-4376-B494-639E489D19ED}" style="display: none;">
+      <div class="xl-chrome-ext-bar__logo"></div>
+
+      <a id="xl_chrome_ext_download" href="javascript:;" class="xl-chrome-ext-bar__option">下载视频</a>
+      <a id="xl_chrome_ext_close" href="javascript:;" class="xl-chrome-ext-bar__close"></a>
+    </div><div id="jlzsCpn_0_component_0" class=" jlzs-container jlzs-gate" style="width: auto; height: 756px;"></div></body></html>

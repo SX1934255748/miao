@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    body{
+      margin: 0;
+      padding: 0;
+      font-size: 0;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    li {
+      color: white;
+      list-style: none;
+      line-height: 2em;
+      height: 2em;
+      font-size: 18px;
+      padding: 1px 2em;
+      box-sizing:content-box;
+      position: relative;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      background-color: #424242;
+      width: 300px;
+      position: absolute;
+    }
+    li:hover{
+      background-color: #1E90FF;
+    }
+    li ul {
+      top:0;
+      left: 100%;
+    }
+    li:hover > ul {
+      display: block;
+    }
+    .menus {
+      background-color: #3C3C3C;
+      width: 750px;
+    }
+    .menus > * {
+      font-size: 20px;
+      display: inline-block;
+      position: relative;
+    }
+    .menus .icon {
+      margin-left: 10px;
+      line-height: 50px;
+    }
+    .menus .icon img{
+      width: 50px;
+      vertical-align:top;
+    }
+    .menus * > ul {
+      position:absolute;
+      display: none;
+    }
+    .menus > * > span{
+      font-size: 20px;
+      color: white;
+      display: inline-block;
+      background-color: #3C3C3C;
+      height: 50px;
+      line-height: 50px;
+      padding: 0px 9px;
+    }
+    .menus > *:hover > ul{
+      display: block;
+    }
+    .menus > *:hover > span{
+      background-color: rgb(80,80,80);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="menus">
+    <div class="icon"><img src="./css-sprite/vscode.png" alt=""></div>
+    <div class="file">
+      <span>文件(F)</span>
+      <ul>
+        <li>新建文件
+          <ul>
+            <li>文件夹
+              <ul>
+                <li>文件夹</li>
+                <li>文件夹</li>
+                <li>文件夹</li>
+              </ul>
+            </li>
+            <li>文件夹</li>
+            <li>文件夹</li>
+          </ul>
+        </li>
+        <li>新建文件</li>
+        <li>新建文件</li>
+        <li>新建文件</li>
+        <li>新建文件
+          <ul>
+            <li>文件夹</li>
+            <li>文件夹
+              <ul>
+                <li>kkk</li>
+                <li>kkk</li>
+                <li>kkk</li>
+                <li>kkk</li>
+                <li>kkk</li>
+              </ul>
+            </li>
+            <li>文件夹</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="edit">
+      <span>编辑(E)</span>
+      <ul>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+      </ul>
+    </div>
+
+    <div class="select">
+      <span>选择(S)</span>
+      <ul>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+      </ul>
+    </div>
+
+    <div class="view">
+      <span>查看(V)</span>
+      <ul>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+      </ul>
+    </div>
+
+    <div class="go">
+      <span>转到(G)</span>
+      <ul>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+      </ul>
+    </div>
+
+    <div class="run">
+      <span>运行(R)</span>
+      <ul>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+      </ul>
+    </div>
+
+    <div class="terminal">
+      <span>终端(T)</span>
+      <ul>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+      </ul>
+    </div>
+
+    <div class="help">
+      <span>帮助(H)</span>
+      <ul>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+        <li>撤销</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

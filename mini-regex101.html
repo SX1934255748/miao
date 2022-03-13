@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regex 101</title>
+  <style>
+
+
+    /*或者用odd even*/
+    strong:nth-child(2n+1) {
+      background-color: #d5ebff;
+    }
+    strong:nth-child(2n) {
+      background-color: #9fcfff;
+    }
+    strong:empty {
+      display: inline-block;
+      width: 2px;
+      height: 1.2em;
+      margin-left: -1px;
+      margin-right: -1px;
+      background-color: pink;
+      vertical-align: bottom;
+    }
+    #string{
+      position: relative;
+      width: 400px;
+      height: 300px;
+    }
+    textarea, pre {
+      height: 100%;
+      overflow: auto;
+      width: 100%;
+      position: absolute;
+      font-size: 24px;
+      font-family: consolas;
+      background-color: transparent;
+      letter-spacing: normal;
+      word-spacing: normal;
+      line-height: normal;
+      text-transform: none;
+      text-indent: 0px;
+      text-shadow: none;
+      display: block;
+      text-align: start;
+      appearance: auto;
+      -webkit-rtl-ordering: logical;
+      resize: auto;
+      cursor: text;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      column-count: initial !important;
+      margin: 0em;
+      border-width: 1px;
+      border-style: solid;
+      border-image: initial;
+      padding: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div>REGULAR EXPRESSION</div>
+  <input type="text" id="reInput" value="f.." oninput="run()">
+  <div>
+    <label for="">g<input type="checkbox" checked id="re_g"></label>
+    <label for="">m<input type="checkbox" id="re_m"></label>
+    <label for="">i<input type="checkbox" id="re_i"></label>
+    <label for="">y<input type="checkbox" id="re_y"></label>
+    <label for="">u<input type="checkbox" id="re_u"></label>
+    <label for="">s<input type="checkbox" id="re_s"></label>
+    <label for="">d<input type="checkbox" id="re_d"></label>
+
+  </div>
+  <div>TEST STRING</div>
+<div id="string">
+  <pre id="resultShow"></pre>
+  <textarea oninput="run()" name="" id="testStringInput" cols="30" rows="10">skld jfka askdjfk jkjkfio</textarea>
+
+</div>
+  <script>
+
+
+    function run() {
+      let reStr = reInput.value
+      let testString = testStringInput.value
+      if(reStr === '') {
+        resultShow.innerHTML = testString
+        return
+      }
+      let flags = getFlags()
+      let re
+      try {
+        re = new RegExp(reStr, flags)
+      } catch (error) {
+        if( error instanceof SyntaxError) {
+          resultShow.innerHTML = testString
+          return
+        } else {
+          throw error
+        }
+      }
+      let resultHTML = ''
+      let s_idx = 0
+      let match
+      while(match = re.exec(testString)) {
+        resultHTML += testString.slice(s_idx, match.index)
+        s_idx = re.lastIndex
+        if(match[0] === '') {
+          re.lastIndex++
+        }
+        resultHTML += '<strong>' + match[0] + '</strong>'
+        if(!re.global) {
+          break
+        }
+      }
+      resultHTML += testString.slice(s_idx)
+      resultShow.innerHTML = resultHTML
+    }
+    function getFlags() {
+      let flags = ''
+      if(re_g.checked) {
+        flags += 'g'
+      }
+      if(re_m.checked) {
+        flags += 'm'
+      }
+      if(re_i.checked) {
+        flags += 'i'
+      }
+      if(re_y.checked) {
+        flags += 'y'
+      }
+      if(re_u.checked) {
+        flags += 'u'
+      }
+      if(re_s.checked) {
+        flags += 's'
+      }
+      if(re_d.checked) {
+        flags += 'd'
+      }
+      return flags
+    }
+    run()
+  </script>
+</body>
+</html>

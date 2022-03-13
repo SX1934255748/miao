@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    body, html{
+      height: 100%;
+    }
+    body, ul{
+      padding: 0px;
+      margin: 0px;
+      font-size: 0px;
+    }
+    body{
+      min-width: 880px;
+    }
+    .title li{
+      font-size: 25px;
+      font-weight: bolder;
+      list-style: none;
+    }
+    .oald{
+      display: inline-block;
+      height: 100%;
+      width: 180px;
+      background-color: pink;
+      border-right: solid 2px black;
+    }
+    .title {
+      height: 80px;
+    }
+    .oald .title li {
+      line-height: 80px;
+
+      text-align: center;
+    }
+
+    .search {
+      height: 30px;
+    }
+    .search input {
+      height: 22px;
+      width: 130px;
+      margin-left: 5px;
+      border-radius: 15px 0 0 15px;
+    }
+    .search button{
+      width: 35px;
+      height: 21px;
+      padding: 4px;
+      margin-left: 2px;
+      border-radius: 0 15px 15px 0;
+    }
+    .list {
+      overflow: auto;
+      height: calc(100% - 110px);
+    }
+    .list li{
+      font-size: 20px;
+      list-style: none;
+      color: blue;
+      height: 30px;
+
+      padding-left: 20px;
+      line-height: 30px;
+    }
+    .oald .list li:hover{
+      color: black;
+      background-color: violet;
+      border: 1px rgb(145, 0, 145) solid;
+    }
+
+    .fantasy {
+      display: inline-block;
+      width: calc(100% - 580px);
+      min-width: 300px;
+      height: 100%;
+      background-color: blue;
+      vertical-align: top;
+    }
+    .fantasy .title li{
+      line-height: 80px;
+      padding-left: 20px;
+      height: 80px;
+      overflow: hidden;
+      border-bottom: black solid 2px;
+    }
+    .fantasy .content{
+      overflow: auto;
+      font-size: 15px;
+      background-color: red;
+      height: calc(100% - 80px);
+    }
+
+    .voc, .history {
+      display: inline-block;
+      vertical-align: top;
+      text-align: right;
+      width: 200px;
+      height: 100%;
+      background-color: burlywood;
+      border-left: black solid 1px;
+    }
+    .voc .title, .history .title{
+      line-height: 80px;
+      padding-right: 10px;
+      height: 80px;
+      background-color: pink;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="oald">
+    <div class="title">
+      <li>OALD Se7en</li>
+    </div>
+    <div class="search">
+      <input value="咋回事捏?" type="text">
+      <button></button>
+    </div>
+    <div class="list">
+      <ul>
+        <li>word1</li>
+        <li>word2</li>
+        <li>word3</li>
+        <li>word4</li>
+        <li>word5</li>
+        <li>word6</li>
+        <li>word7</li>
+        <li>word8</li>
+        <li>word9</li>
+        <li>word10</li>
+        <li>word11</li>
+        <li>word12</li>
+        <li>word13</li>
+        <li>word14</li>
+        <li>word15</li>
+        <li>word16</li>
+        <li>word17</li>
+        <li>word18</li>
+        <li>word19</li>
+        <li>word20</li>
+        <li>word21</li>
+        <li>word22</li>
+        <li>word23</li>
+        <li>word24</li>
+        <li>word25</li>
+        <li>word26</li>
+        <li>word27</li>
+        <li>word28</li>
+        <li>word29</li>
+        <li>word30</li>
+        <li>word31</li>
+        <li>word32</li>
+        <li>word33</li>
+        <li>word34</li>
+        <li>word35</li>
+        <li>word36</li>
+        <li>word37</li>
+        <li>word38</li>
+        <li>word39</li>
+        <li>word40</li>
+        <li>word41</li>
+        <li>word42</li>
+        <li>word43</li>
+        <li>word44</li>
+        <li>word45</li>
+        <li>word46</li>
+        <li>word47</li>
+        <li>word48</li>
+        <li>word49</li>
+        <li>word50</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fantasy">
+    <div class="title">
+      <li>fantasy</li>
+    </div>
+    <div class="content">
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti molestias quae iste quas ea tempora recusandae quisquam natus, eum corporis earum, placeat, dolorum atque vero. Asperiores dicta iure nisi excepturi.</p>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti molestias quae iste quas ea tempora recusandae quisquam natus, eum corporis earum, placeat, dolorum atque vero. Asperiores dicta iure nisi excepturi.</p>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti molestias quae iste quas ea tempora recusandae quisquam natus, eum corporis earum, placeat, dolorum atque vero. Asperiores dicta iure nisi excepturi.</p>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti molestias quae iste quas ea tempora recusandae quisquam natus, eum corporis earum, placeat, dolorum atque vero. Asperiores dicta iure nisi excepturi.</p>
+    </div>
+  </div>
+
+  <div class="voc">
+    <div class="title">
+      <li>Vocabulary</li>
+    </div>
+  </div>
+
+  <div class="history">
+    <div class="title">
+      <li>history</li>
+    </div>
+  </div>
+</body>
+</html>

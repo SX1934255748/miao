@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: pink;
+    }
+    .sprite > *{
+      background-image: url(./css-sprite/1.webp);
+      background-repeat: no-repeat;
+    }
+    .sprite .google1 {
+      height: 74px;
+      width: 335px;
+      background-position: 0 0;
+    }
+    .sprite .google1:hover {
+      height: 74px;
+      width: 335px;
+      background-position: 0 -224px;
+    }
+    .sprite .google2 {
+      height: 65px;
+      width: 185px;
+      background-position: -2px -86px;
+    }
+    .sprite .google3 {
+      height: 74px;
+      width: 335px;
+      background-position: 0 -224px;
+    }
+    .sprite .star {
+      height: 23px;
+      width: 128px;
+      background-position: -201px -522px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sprite">
+    <div class="google1"></div>
+    <div class="google2"></div>
+    <div class="google3"></div>
+    <div class="star"></div>
+  </div>
+</body>
+</html>

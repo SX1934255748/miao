@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .header {
+      background-color: red;
+      margin: 20px 10px;
+    }
+    .center {
+      width: 600px;
+      margin: 0 auto;
+    }
+    .centent {
+      width: 600px;
+      height: 250px;
+      border: solid black 2px;
+      margin: 0 auto;
+    }
+    .centent .top, .centent .bottom{
+      height: 60px;
+      width: 580px;
+      overflow-y: scroll;
+      margin: 20px auto;
+    }
+
+    .centent .middle{
+      height: 50px;
+      width: 580px;
+      background-color: violet;
+      margin: 0 auto;
+    }
+    .centent .middle:hover {
+      width: 600px;
+    }
+    .last {
+      height: 0;
+      width: 0;
+      margin: 10px auto;
+      border: 50px solid white;
+      border-bottom-color: tomato;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="center">
+      <span>aaaaaa</span>
+    </div>
+  </div>
+  <div class="centent">
+    <div class="top"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente alias hic quis cum voluptate perferendis quam obcaecati nobis accusamus et odio recusandae, culpa dolorem debitis. Alias quae necessitatibus explicabo quaerat.</span></div>
+    <div class="middle"></div>
+    <div class="bottom"><span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui distinctio saepe obcaecati architecto nesciunt maxime porro sequi tempore! Facere perspiciatis ipsum reprehenderit odit obcaecati. Nulla corporis at autem a sequi!</span></div>
+  </div>
+  <div class="last"></div>
+</body>
+</html>

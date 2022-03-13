@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
+  <style type="text/less">
+    /* table table-dark table-striped  table-hover table-bordered table-borderless table-sm
+    实现bootstrap中所有以上类名的功能，需要能像bootstrap一样可以组合使用 */
+
+
+    @t_padding: 15px;
+
+    .table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 100%;
+      text-align: left;
+      box-sizing: border-box;
+      border-spacing: 0px;
+      th,td {
+        padding: @t_padding;
+        border-bottom: 1px solid teal;
+      }
+      .active:hover {
+        background-color: rgb(252, 214, 220);
+      }
+      thead tr:last-of-type {
+        th,td {
+          border-bottom: 2px solid teal;
+        }
+      }
+      tbody tr:last-of-type {
+        th,td {
+          border-bottom: 0px;
+        }
+      }
+    }
+    .table-striped {
+      tbody tr:nth-of-type(2n+1){
+        background-color: rgba(0, 0, 0, 0.02);
+      }
+    }
+
+    .table-bordered {
+      border-collapse: collapse;
+      th,td {
+        border: 1px solid teal;
+      }
+
+      tbody tr:last-of-type {
+        th,td {
+          border-bottom: 1px solid teal;
+        }
+      }
+    }
+
+    .table-hover {
+      tbody tr:hover{
+        background-color: rgba(0, 0, 0, 0.08);
+      }
+
+    }
+    .table-condensed {
+      th,td{
+        padding: @t_padding/2;
+      }
+    }
+    .table-borderless {
+      th,td{
+        border: 0px!important;
+      }
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <table class="table table-bordered table-striped table-hover table-condensed table-borderless">
+    <thead>
+      <tr class="active">
+        <th>#</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="active">
+        <th>1</th>
+        <td>kddd</td>
+        <td>jj</td>
+        <td>mmsdfsd1fsdfsdf</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>kddd</td>
+        <td>jj</td>
+        <td>mmsdfsdf32sdfsdf</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <td>kddd</td>
+        <td>jj</td>
+        <td>mmsdfsd3fsdfsdf</td>
+      </tr>
+      <tr>
+        <th>4</th>
+        <td>kddd</td>
+        <td>jj</td>
+        <td>mmsdfsdsdfsddf</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script src="./less+sass/less.min.js"></script>
+</body>
+</html>

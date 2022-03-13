@@ -1,0 +1,502 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    svg {
+      border: 2px solid black;
+    }
+
+  </style>
+</head>
+<body>
+
+  <svg width="5000px" height="5000px">
+
+  </svg>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+
+    function createGraph(node) {
+      if (node.type == 'Character') {
+        return createCharacterGraph(node)
+
+      } else if(node.type == 'CharacterClass') {
+        return createCharacterClassGraph(node)
+
+      } else if(node.type == 'Branch') {
+        return createBranchGraph(node)
+
+      } else if(node.type == 'Branches') {
+        return createBranchesGraph(node)
+
+      } else if(node.type == 'CaptureGroup') {
+        return createCaptureGroupGraph(node)
+
+      } else if(node.type == 'Quantifier') {
+        return createQuantifierGraph(node)
+
+      } else if(node.type == 'Escape') {
+        return createEscapeGraph(node)
+
+      }
+
+
+
+
+    }
+
+    // a
+    var svg = document.querySelector('svg')
+    var graphPadding = 10
+
+    function createCharacterGraph(node) {
+      //创建text标签, 添加属性使文字居中, 添加文本
+      var text = elt('text', {
+        'dominant-baseline':'text-before-edge',
+        x: graphPadding / 2,
+        y: graphPadding / 2,
+      }, node.value)
+
+      // 创建g标签把text添加进去
+      var g = elt('g', {}, text)
+      // 把g标签添加到svg
+      svg.appendChild(g)
+
+      var box = g.getBBox()
+      //创建rect矩形框
+      var rect = elt('rect', {
+        x: 0,
+        y: 0,
+        fill: '#dae9e5',
+        width: box.width + graphPadding,
+        height: box.height + graphPadding,
+        rx: 1,
+        ry: 1,
+      })
+      g.appendChild(rect) //给<g>添加<rect>
+      g.appendChild(text) //把g标签移动到rect后面
+      var box = g.getBBox()
+      return {
+        g: g,
+        width: box.width,
+        height: box.height,
+      }
+
+    }
+
+
+    // [abc]
+    function createCharacterClassGraph(node) {
+      var graphs = node.elements.map(createGraph)
+      var height = graphs.map(it => it.height).reduce(add) + (graphs.length + 1) * graphPadding
+      var width = graphs.map(it => it.width).reduce(max) + (2 * graphPadding)
+
+      var fill = elt('rect', {
+        width: width,
+        height: height,
+        fill: '#cbcbba',
+      })
+      var g = elt('g', {}, fill)
+
+      var y = graphPadding
+      for(var graph of graphs) {
+        graph.g.setAttribute('transform', `translate(${((width - graph.width) / 2)}, ${y})`)
+        y += graph.height + graphPadding
+        g.appendChild(graph.g)
+      }
+      var box = g.getBBox()
+
+      return {
+        g: g,
+        width: box.width,
+        height: box.height,
+      }
+
+    }
+
+
+
+    function createBranchGraph(node) {
+      var graphs = node.elements.map(createGraph)
+      var height = graphs.map(it => it.height).reduce(max) + (2 * graphPadding)
+      var width = graphs.map(it => it.width).reduce(add) + (graphs.length + 1) * graphPadding
+
+      var fill = elt('rect', {
+        width: width,
+        height: height,
+        // fill: '#cbcbba',
+        rx: '3',
+      })
+      var g = elt('g', {}, fill)
+
+      var y = graphPadding
+      for(var graph of graphs) {
+        graph.g.setAttribute('transform', `translate(${((width - graph.width) / 2)}, ${y})`)
+        y += graph.height + graphPadding
+        g.appendChild(graph.g)
+      }
+      var box = g.getBBox()
+
+      return {
+        g: g,
+        width: box.width,
+        height: box.height,
+      }
+
+    }
+
+
+
+    function max(a, b) {
+      return Math.max(a, b)
+    }
+    function add(a, b) {
+      return a + b
+    }
+
+    //创建<tagName>标签, 添加属性(attrs), 添加(childrens)标签或文本
+    function elt(tagName, attrs = {}, ...childrens) {
+      var el = document.createElementNS("http://www.w3.org/2000/svg", tagName)
+
+      for(let key in attrs) {
+        el.setAttribute(key, attrs[key])
+      }
+      childrens.forEach(child => {
+        if(typeof child == 'string') {
+          child = document.createTextNode(child)
+        }
+        el.appendChild(child)
+      })
+      svg.appendChild(el)
+      return el
+
+    }
+
+
+    // var str = '\\d(?<=fll)(?<key>qqqqq)[ab]c|(?:foo)(?=foo)(?!foo)(?<=foo)(?<!foo)(?<name>foo)'
+    // var i = 0
+    function ParseOnePart() { //解析遇到不同符号调用函数, 解析一部分
+      if(str[i] == '[') {
+        return parseCharacterClass() //解析字符类[]
+      }
+      if(str[i] == '(') {
+        return parseCaptureGroup() //捕获分组()
+      }
+      if(str[i] == '\\') {
+        return parseEscape() // 解析转义符\\
+      }
+      if(str[i] == '?' || str[i] == '+' || str[i] == '*' || str[i] == '{') {
+        return parseQuantifier() //解析量词
+      }
+      return parseCharacter()
+
+    }
+
+
+    // 解析一个字符并i++ 返回字符节点
+    function parseCharacter() {
+      if(str[i] == '\\') {
+        return parseEscape()
+      }
+      var node = {
+        type: 'Character',
+        start: i,
+        end: i + 1,
+        raw: str.slice(i, i + 1),
+        value: str[i],
+      }
+      i++
+      return node
+    }
+
+
+    // 解析类 [] 返回字符节点
+    function parseCharacterClass() {
+      var node = {
+        type: 'CharacterClass',
+        start: i,
+        end: 0,
+        raw: '',
+        revert: false,
+        elements: [],
+      }
+      i++
+      if(str[i] == '^') {
+        node.revert = true
+        i++
+      }
+
+      while(str[i] != ']') {
+        var character = parseCharacter()
+        if(str[i] == '-') {
+          i++   // skip -
+          var character2 = parseCharacter()
+          var rangeNode = {
+            type: 'CharacterRange',
+            start: character.start,
+            end: character2.end,
+            raw: str.slice(character.start, character2.end),
+            startCharacter: character,
+            endCharacter: character2,
+          }
+          node.elements.push(rangeNode)
+        } else {
+          node.elements.push(character)
+        }
+      }
+      i++ // skip ]
+      node.end = i
+      node.raw = str.slice(node.start, node.end)
+      return node
+    }
+
+
+    //解析量词 * + ?
+    function parseQuantifier() {
+
+      var node = {
+        type: 'Quantifier',
+        start: i,
+        end: 0,
+        element: null,
+        min: 0,
+        max: Infinity,
+        greedy: false,
+      }
+      if(str[i] == '?') {
+        node.max = 1
+        i++
+      } else if(str[i] == '*') {
+        node.min = 0
+        i++
+      } else if(str[i] == '+') {
+        node.min = 1
+        i++
+      } else { // {
+        i++
+        skipSpace()
+        node.min = parseInteger()
+        skipSpace()
+        if(str[i] == '}') {
+          node.max = node.min
+          i++
+        } else if(str[i] == ','){
+          i++ //skip ,
+          skipSpace()
+          if(str[i] == '}') {
+            i++
+          } else {
+            node.max = parseInteger()
+            skipSpace()
+            i++
+          }
+        }
+
+      }
+
+      if(str[i] == '?')  {
+        node.greedy = false
+        i++
+      }
+      node.end = i
+      node.raw = str.slice(node.start, node.end)
+      return node
+    }
+
+
+    //解析分支 例:a|b, 返回a, i指向"|"
+    function parseBranch() {
+      var node = {
+        type: 'Branch',
+        start: i,
+        end: 0,
+        raw: '',
+        elements: [],
+      }
+
+      while(str[i] !== '|' && str[i] !== ')' && i < str.length) {
+        var part = ParseOnePart()
+        if(part.type == 'Quantifier') {
+          part.element = node.elements.pop()
+          part.start = part.element.start
+          part.raw = str.slice(part.start, part.end)
+        }
+        node.elements.push(part)
+      }
+
+      node.end = i
+      node.raw = str.slice(node.start, node.end)
+
+      return node
+    }
+
+
+    // 解析所有分支 返回数组
+    function parseBranches() {
+      var nodes = []
+      while(i < str.length) {
+        var branch = parseBranch()
+        nodes.push(branch)
+        if(str[i] == ')') {
+          break
+        }
+        i++ //skip | )
+      }
+      return nodes
+    }
+
+
+    // (foo)
+    // (?:foo) 非捕获分组, 不会被单独列出, groupindex 不增加
+    // (?=foo) 正预测
+    // (?!foo) 负预测
+    // (?<=foo) 正回顾
+    // (?<!foo) 负回顾
+    // (?<name>foo) 具名分组
+    var groupIndex = 1
+    function parseCaptureGroup() {
+
+      var node = {
+        type: 'CaptureGroup',
+        start: i,
+        end: 0,
+        raw: '',
+        branches: null,
+        index: 0, // 分组的下标
+        name: '',
+        assertion: false, //零宽断言
+        lookahead: true, // 预测断言 false 回顾断言
+        positive: true, // 断言类型, 正断言还是反断言
+      }
+      i++ // skip "("
+
+      if(str[i] == '?') {
+        i++ //skip "?"
+        if(str[i] == ':') { //非捕获分组
+          i++
+        } else if(str[i] == '=') { //正预测断言
+          node.assertion = true
+          node.lookahead = true
+          node.positive = true
+          i++
+        } else if(str[i] == '!') { //负预测断言 正预测的反选
+          node.assertion = true
+          node.lookahead = true
+          node.positive = false
+          i++
+        } else if(str[i] == '<') { // 回顾断言或者数具名分组
+          i++
+          if(str[i] == '=') {
+            node.assertion = true
+            node.lookahead = false
+            node.positive = true
+            i++
+          } else if(str[i] == '!') {
+            node.assertion = true
+            node.lookahead = false
+            node.positive = false
+            i++
+          } else {
+            node.name = parseGroupName()
+            node.index = groupIndex++ //分组编号
+            i++ // skip '>'
+          }
+        }
+
+      } else {
+        node.index = groupIndex++ // 分组编号
+      }
+      node.branches = parseBranches()
+
+      i++ // skip ")"
+      node.end = i
+      node.raw = str.slice(node.start, node.end)
+      return node
+    }
+
+
+    //解析\d, \w等
+    function parseEscape() {
+      var node ={
+        type: 'Escape',
+        start: i,
+        end: 0,
+        raw: '',
+        value: '',
+      }
+      i++ //skip '\'
+      node.value = str[i]
+      i++ //skip value
+      node.end = i
+      node.raw = str.slice(node.start, node.end)
+      return node
+    }
+
+
+    //解析具名分组的名字
+    function parseGroupName() {
+      var start = i
+      while(str[i] !== '>') {
+        i++
+      }
+      return str.slice(start, i)
+    }
+
+    // skip 所有空格
+    function  skipSpace() {
+      while(str[i] == ' ') {
+        i++
+      }
+    }
+
+    //解析数字
+    function parseInteger() {
+      var numStr = ''
+      while(str[i] >= '0' && str[i] <= '9') {
+        numStr += str[i]
+        i++
+      }
+      return parseInt(numStr)
+    }
+
+    function parsePattern() {
+      var node = {
+        type: 'Pattern',
+        branches: parseBranches()
+      }
+      return node
+    }
+
+    //解析正则
+    function parseRegex(input) {
+      str = input
+      i = 0
+      groupIndex = 1
+      return parsePattern()
+    }
+
+
+  </script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="500" height="400"></canvas>
+</body>
+<script>
+  var canvas = document.querySelector('canvas')
+  canvas.style.imageRendering = 'pixelated' //放大时的插帧方式：不插帧，直接放大像素
+  var ctx = canvas.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    x = Math.round(x)
+    y = Math.round(y)
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+  /**
+   * YOUR TASK
+      * 在 坐标 (42, 42) 画出一个点
+      * 画一条实线
+      * 画一条一个实点一个空点的虚线
+      * 画一条两个实点两个空点的虚线
+      * 画一条三个实点两个空点的虚线
+      * 画一条45度的斜线
+      * 画一条30度的斜线（与x轴或y轴的夹角呈30度）
+      * 画一条跨越画布左上角和右下角的对角线
+      * 画一个空心矩形
+      * 画一个实心矩形
+      * 画两个个空心的圆，居中：
+        * 一个半径为50像素
+        * 一个半径为200像素
+      * 画一个实心的圆，半径至少为100像素
+      * 画一个【大小合适】的sin(x)的图像
+
+      * 画出rgb色彩空间的某一面（尺寸要大于100x100）
+        如果做出上一题后，尝试将其每个点的坐标乘以一个矩阵（如(2,0,0,2)或(1,0.27得到新的位置，即绘制出被线性变幻后的色彩空间某一面
+        可以考虑如下几种矩阵：
+           2 0
+           0 2
+           ------
+           1  0.27
+           0  1
+           ------
+           0.5    0.87
+           -0.87  0.5
+
+   */
+</script>
+<script>
+
+  dot(42, 42)
+  let x = 42
+  let y = 45
+  for(let i = x; i < 100; i++) {
+    dot(i, y)
+  }
+  y = 48
+  for(let i = x; i < 100; i += 2) {
+    dot(i, y)
+  }
+  y = 50
+  for(let i = x; i < 100; i+=4) {
+    dot(i, y)
+    dot(i+1, y)
+  }
+  y = 52
+  for(let i = x; i < 100; i+=5) {
+    for(let j = i; j < i + 3; j++) {
+      dot(j, y)
+    }
+  }
+  // 画一条45度的斜线
+  x = 55
+  for(let i = x; i < x+50; i++) {
+    dot(i, i)
+  }
+
+  //     * 画一条30度的斜线（与x轴或y轴的夹角呈30度）
+  x = 58
+  let tan30 = Math.tan(30 * Math.PI/180)
+  for(let i = x; i < x+50; i++) {
+    dot(i, i*tan30)
+  }
+  //     * 画一条跨越画布左上角和右下角的对角线
+  x = 0
+  let len = Math.sqrt(400**2 + 500**2)
+  for(let i = x; i < len; i++) {
+    dot(i, 4 / 5 * i)
+  }
+  x = 43
+  y = 100/tan30
+  //     * 画一个空心矩形
+  for(let i = x; i <= x+50; i++) {
+    for(let j = y; j <= y+50; j++){
+      if(j == y || j == y+50 || i == x || i == x+50) {
+        dot(i, j*tan30)
+
+      }
+    }
+  }
+  //     * 画一个实心矩形
+  x = 43
+  y = 100/tan30 + 60
+  for(let i = x; i <= x+50; i++) {
+    for(let j = y; j <= y+50; j++){
+        dot(i, j*tan30)
+
+
+    }
+  }
+  //     * 画两个个空心的圆，居中：
+  x =250
+  y = 200
+  function circle(cx, cy, r) {
+    let x = 0
+    let y = r
+    while(x <= y) {
+      dot(x +  cx, y + cy)
+      dot(-x + cx, y + cy)
+      dot(x + cx, -y + cy)
+      dot(-x + cx, -y + cy)
+      dot(y + cx, x + cy)
+      dot(-y + cx, x + cy)
+      dot(y + cx, -x + cy)
+      dot(-y + cx, -x + cy)
+      l1 = x * x + y * y
+      l2 = x * x + (y-1) * (y-1)
+      if(Math.abs(r * r - l2) < Math.abs(r * r - l1)) {
+        y--
+      }
+      x++
+    }
+  }
+  circle(x, y, 50)
+  circle(x, y, 200)
+
+  //       * 一个半径为50像素
+  //       * 一个半径为200像素
+  //     * 画一个实心的圆，半径至少为100像素
+  function circle(cx, cy, r, solid) {
+    let x = 0
+    let y = r
+    while(x <= y) {
+
+      for(let i = 0; i <= y; i++) {
+        if(!solid) {
+          i = y
+        }
+        dot(x +  cx,  i+ cy)
+        dot(-x + cx,  i+ cy)
+        dot(x + cx, -i + cy)
+        dot(-x + cx, -i + cy)
+        dot(i +  cx, x + cy)
+        dot(-i + cx, x + cy)
+        dot(i + cx, -x + cy)
+        dot(-i + cx, -x + cy)
+        if(!solid) {
+          break
+        }
+      }
+      l1 = x * x + y * y
+      l2 = x * x + (y-1) * (y-1)
+      if(Math.abs(r * r - l2) < Math.abs(r * r - l1)) {
+        y--
+      }
+      x++
+    }
+  }
+  circle(x, y, 100, true)
+  //     * 画一个【大小合适】的sin(x)的图像
+
+  for(let i = 0; i < Math.PI; i++) {
+
+  }
+
+
+
+  //     * 画出rgb色彩空间的某一面（尺寸要大于100x100）
+  //       如果做出上一题后，尝试将其每个点的坐标乘以一个矩阵（如(2,0,0,2)或(1,0.27得到新的位置，即绘制出被线性变幻后的色彩空间某一面
+  //       可以考虑如下几种矩阵：
+  //          2 0
+  //          0 2
+  //          ------
+  //          1  0.27
+  //          0  1
+  //          ------
+  //          0.5    0.87
+  //          -0.87  0.5
+
+  // function line(x, y, dir, len) {
+  //   let
+  //   switch (dir) {
+  //     case 'left':
+  //       x = x - len
+  //       break
+  //     case 'right':
+  //       x = len
+  //       break
+  //     case 'top':
+  //       y = y - len
+  //     case 'bottom':
+  //       y = len
+  //       break
+  //   }
+  //   for()
+  // }
+  // 不可更改上面的代码
+  // 你的代码写在这里
+  // YOUR CODE GOES BELOW
+</script>
+</html>

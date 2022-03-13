@@ -1,0 +1,606 @@
+<script>
+var findMaxConsecutiveOnes = function(nums) {
+    let len = nums.length
+    let sum = 0
+    let sum_max = 0
+    for(let i = 0; i < len; i++) {
+      if(nums[i] === 1) {
+        sum += 1
+      }
+      if(sum > sum_max) {
+        sum = sum_max
+      }
+      sum = 0
+
+    }
+    return sum_max
+};
+  /*
+
+https://leetcode.com/problems/valid-perfect-square/
+https://leetcode.com/problems/add-digits/
+https://leetcode.com/problems/ugly-number/
+https://leetcode.com/problems/max-consecutive-ones/
+https://leetcode.com/problems/reverse-integer/
+https://leetcode.com/problems/fizz-buzz/
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+https://leetcode.com/problems/two-sum/
+https://leetcode.com/problems/power-of-three/
+https://leetcode.com/problems/plus-one/
+https://leetcode.com/problems/fibonacci-number/
+https://leetcode.com/problems/power-of-four/
+https://leetcode.com/problems/happy-number/
+https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+https://leetcode.com/problems/count-primes/
+https://leetcode.com/problems/base-7/
+https://leetcode.com/problems/search-insert-position/
+
+
+
+https://leetcode.com/problems/move-zeroes/ 明天听听
+https://leetcode.com/problems/counting-bits/比特位计算
+
+
+
+
+
+
+
+
+
+2021/12/24 22:10:03
+做完的
+https://leetcode.com/problems/squares-of-a-sorted-array/
+https://leetcode.com/problems/triangle/
+https://leetcode.com/problems/excel-sheet-column-title/
+
+
+
+
+https://leetcode.com/problems/distribute-candies/
+
+
+
+
+https://leetcode.com/problems/integer-to-roman/
+https://leetcode.com/problems/palindrome-number/
+https://leetcode.com/problems/pascals-triangle/
+https://leetcode.com/problems/perfect-number/
+https://leetcode.com/problems/trapping-rain-water/
+https://leetcode.com/problems/climbing-stairs/
+https://leetcode.com/problems/unique-paths/
+https://leetcode.com/problems/sqrtx/
+https://leetcode.com/problems/powx-n/
+谢然 2021/12/28 11:47:05
+https://leetcode.com/problems/number-of-1-bits/
+
+谢然 2021/12/28 11:47:17
+https://leetcode.com/problems/hamming-distance/
+
+谢然 2021/12/28 11:50:26
+https://leetcode.com/problems/single-number/
+
+谢然 2021/12/28 16:31:01
+https://leetcode.com/problems/add-strings/
+
+谢然 2021/12/28 16:31:34
+https://leetcode.com/problems/add-binary/
+
+谢然 2021/12/28 16:40:15
+https://leetcode.com/problems/multiply-strings/
+
+https://leetcode.com/problems/sort-an-array/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+做完
+https://leetcode.com/problems/add-two-numbers
+https://leetcode.com/problems/reverse-linked-list
+https://leetcode.com/problems/remove-nth-node-from-end-of-list
+https://leetcode.com/problems/merge-two-sorted-lists
+https://leetcode.com/problems/linked-list-cycle
+
+https://leetcode.com/problems/swap-nodes-in-pairs
+https://leetcode.com/problems/linked-list-cycle-ii
+https://leetcode.com/problems/rotate-list
+https://leetcode.com/problems/delete-node-in-a-linked-list
+https://leetcode.com/problems/remove-linked-list-elements
+
+
+
+在做
+
+
+
+
+
+谢然 17:38:02
+
+
+谢然 17:38:16
+
+
+
+
+
+*/
+function parseQueryString(str) {
+  let strary = srt.split('&')
+  let map = {}
+  strary.forEach(function(i){
+    let stra = i.split('=')
+    map[stra[0]] = stra[1]
+  });
+  return map
+}
+
+
+
+function parseCsv(csvStr) {
+  let strary = str.split('\n')
+
+  for(let i in strary) {
+    strary[i] = strary[i].split(',')
+  }
+  let result = []
+  for(let i in strary[0]) {
+    for(let j = 1; j < strary.length; j++) {
+      result[j][strary[]]
+    }
+
+  }
+
+  a[0]
+
+
+}
+
+
+function selectSort(ary) {
+  for(let i = 0; i < ary.length; i++) {
+    let min = i
+    for(let j = i; j < ary.length; j++) {
+      if(ary[min] > ary[j]) {
+        min = j
+      }
+    }
+    let m = ary[min]
+    ary[min] = ary[i]
+    ary[i] = m
+  }
+  return ary
+}
+
+function swap(ary, i, j) {
+  let swapi = ary[i]
+  ary[i] = ary[j]
+  ary[j] = swapi
+}
+
+function bubbleSort(ary) {
+
+  for(let i = ary.length-1; i > 0; i--) {
+    for(let j = 0; j < i; j++) {
+      if(ary[j] > ary[j+1]) {
+        let swapi = ary[j+1]
+        ary[j+1] = ary[j]
+        ary[j] = swapi
+      }
+    }
+  }
+  return ary
+
+}
+
+
+
+function randomAry(n) {
+  let array = []
+  for(let i = 0; i < n; i++) {
+    array[i] = ~~(Math.random() * n)
+  }
+  return array
+}
+
+function mergeSort(ary) {
+  if(ary.length < 2) {
+    return ary
+  }
+  let mid = ~~(ary.length / 2)
+  let ary1 = ary.slice(mid,ary.length)
+  let ary2 = ary.slice(0, mid)
+
+  mergeSort(ary1)
+  mergeSort(ary2)
+  let a = 0
+  let b = 0
+  let l = ary1.length + ary2.length
+  for(let i = 0; i < l; i++) {
+
+    if(ary2[b] == undefined || ary1[a] < ary2[b]) {
+      ary[i] = ary1[a]
+      a++
+    } else {
+      ary[i] = ary2[b]
+      b++
+    }
+  }
+
+  return ary
+
+
+
+}
+
+function insertSort(ary) {
+  for(let i = 1; i < ary.length; i++) {
+    for(let j = i-1; j >= 0; j--) {
+      if(ary[i] < ary[j]) {
+        ary[j+1] = ary[j]
+      } else {
+        break
+      }
+    }
+    a[j+1] = ary[i]
+  }
+  return ary
+}
+
+
+function isSorted(ary) {
+
+  for(let i = 0; i < ary.length - 1; i++) {
+    if(a[i+1] < a[i]) {
+      return false
+    }
+  }
+  return true
+}
+
+
+
+function arrayToList(array) {
+  let node = {
+    val: array[0],
+    next: null,
+  }
+  let n = node
+  for(let i = 0; i < array.length; i++) {
+    let next = {
+      val: array[i],
+      next: null
+    }
+    n.next = next
+    n = n.next
+  }
+  return node
+}
+
+function arrayToListR(array) {
+  if(array.length) {
+    return null
+  }
+  let head = {
+    val: array[0],
+    next: null
+  }
+  let tail = arrayToListR(array.slice(1))
+  head.next = tail
+}
+
+var list = []
+function list_to_array(head) {
+
+  list.push(head.val)
+  if(head.next == null){
+    return list
+  }
+  list_to_array(head.next)
+
+}
+
+function nth(list, index) {
+
+  if(list == null){
+    return undefined
+  }
+  if(index == 0) {
+    return list.val
+  }
+  return nth(list.next, index--)
+}
+function insert(list, n, val) {
+  if(list == null){
+    return undefined
+  }
+  if(index == 0) {
+    return list.val
+  }
+  return nth(list.next, index--)
+}
+
+
+
+  let sum = 0
+  let l_i = 0
+  let r_i = 0
+  let l_max = height[l_i]
+  let r_max = height[height.length-1]
+  for(let i in height) {
+    i = Number(i)
+    let left =  i-1
+    let right = i+1
+
+
+    if(height[left] >= l_max) {
+      l_max = height[left]
+      l_i = left
+    }
+    if(r_i >= i) {
+      r_max = height[right]
+      r_i = right
+    }else {
+      r_max = height[height.length-1]
+      r_i = height.length-1
+      while(right < height.length) {
+        if(height[right] >= r_max) {
+          r_max = height[right]
+          r_i = right
+        }
+        right++
+      }
+    }
+
+    let second = l_max > r_max ? r_max : l_max
+    if(second - height[i] >= 0) {
+      sum += second - height[i]
+    }
+  }
+  return sum
+
+
+
+
+
+var trap = function(height) {
+  let sum = 0
+
+  for(let i in height) {
+      let left =  i-1
+      let right = i+1
+      let l_max = height[i]
+      let r_max = height[i]
+      while(left >= 0 && right < height.length) {
+
+        if(height[left] > l_max) {
+          l_max = height[left]
+        }
+        if(height[right] > r_max) {
+          l_max = height[right]
+        }
+        left--
+        right++
+      }
+      let second = height[left] > height[right] ? height[right] : height[left]
+      if(second - height[i] >= 0) {
+        sum += second - height[i]
+      }
+  }
+  return sum
+
+};
+function sum () {
+  let sum = 0
+  for(let i = 0; i < arguments.length; i++) {
+    sum += arguments[i]
+  }
+  return sum
+}
+
+var myPow = function(x, n) {
+    if(n == 0) {
+        return 1
+    }
+    if(n == 1){
+        return x
+    }
+    let half
+    if(n >= 0) {
+        half = myPow(x, Math.trunc(n / 2))
+    } else {
+        half = 1/myPow(x, -1 * Math.trunc(n / 2))
+    }
+    if(n % 2 == 0) {
+
+        return myPow(half * half, 1)
+    } else {
+        if(n >= 0) {
+            return myPow(half * half * x, 1)
+        } else {
+            return myPow(half * half * (1/x), 1)
+        }
+
+    }
+
+
+};
+  function indexOf(array, value) {
+
+    for( i in array) {
+      if(array[i] == value) {
+        return i
+      }
+    }
+    return -1
+  }
+
+
+  function countBs(str) {
+    let sum = 0
+    for(let i = 0; i < str.length; i++) {
+      if(str[i] == 'B') {
+        sum++
+      }
+    }
+    return sum
+  }
+  function countChar(str, letter) {
+    let sum = 0
+    for(let i = 0; i < str.length; i++) {
+      if(str[i] == letter) {
+        sum++
+      }
+    }
+    return sum
+  }
+  function isEven(n) {
+
+  }
+  var moveZeroes = function(nums) {
+
+      let nums_len = nums.length
+      for(let i = 0; i < nums_len; i++) {
+
+      }
+
+
+  };
+  function find(x, y, history) {
+    if9
+  }
+
+
+
+  function inputArdReverse(n) {
+
+  }
+  function factorial(n) {
+    if(n === 0) {
+      return 0
+    }
+    return factorial(n-1) * x
+  }
+
+  function fibb(n, l1 = 0, l2 = 1) {
+
+    if(n == 1) {
+      return l1
+    }
+    let l = l2
+    l2 = l1 + l2
+    l1 = l2
+    return fibb(n - 1, l1, l2)
+  }
+  var isUgly = function(n) {
+      for(let i = 2; i <= Math.abs(n) / 2; i+=2){
+          if(n % i === 0 && i !== 2 && i !) {
+            return false
+          }
+      }
+      return true
+  };
+  var addDigits = function(num) {
+    do {
+      let num_len = String(num).length
+      let sum = 0
+      for(let i = 0; i < num_len; i++) {
+        sum += Number(String(num)[i])
+      }
+      num = sum
+    } while(String(num).length > 1)
+  };
+  var isPerfectSquare = function(num) {
+    let left = 0, right = num
+    while(left <= right) {
+        let mid = !(left + right) % 2 ? (left + right) / 2 : (left + right) / 2 - ((left + right) / 2) % 1
+        let square = mid * mid
+        if(square > num) {
+          right = mid - 1
+        } else if(square < num) {
+          left = mid + 1
+        } else {
+          return true
+        }
+    }
+    return false
+  };
+  let map = [1, 2, 3, 4]
+  let len = map.length
+  for(let i = len-1; i >= 0; i--) {
+    console.log(map[i])
+  }
+  function factorial(n) {
+    let result = 1
+    for(let i = 1; i <= n; i++) {
+      result *= i
+    }
+    return result
+  }
+
+  function isPrime(n) {
+    if(n <= 1) {
+      return false
+    }
+    for(let i = 2; i * i <= n; i++) {
+      if(n !== 2 && n % i === 0) {
+        return false
+      }
+    }
+    return true
+  }
+
+  function qiao7(n) {
+    if(n % 7 == 0) {
+      return true
+    }
+    for(let i = 0; i < String(n).length; i++) {
+
+    }
+  }
+  function fibb(n) {
+    let l1 = 0
+    let l2 = 1
+    for(let i = 0; i < n; i++) {
+      let l = l2
+      l2 = l1 + l2
+      l1 = l
+    }
+    return l1
+  }
+
+</script>

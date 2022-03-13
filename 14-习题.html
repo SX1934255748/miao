@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <div class="bin_qwx">
+    <input type="text">
+    <input type="text">
+  </div>
+
+  <script>
+
+    //14.16.1 bin qwx
+    var bin_qwx = document.querySelector('.bin_qwx')
+    bin_qwx.addEventListener('keydown', function(e) {
+      console.log(e.keyCode)
+      let keyCode = e.keyCode
+      if(keyCode == 81 || keyCode == 87 || keyCode == 88) {
+        e.preventDefault()
+      }
+    })
+    document.addEventListener('readystatechange', function(e) {
+      console.log(document.readyState)
+    })
+
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<script>
+
+  let str = '{"a":{"a":1,"b":2,},"b":2,}'
+
+
+  function  jsonpare(str, obj = {}) {
+    var key = ""
+    for(let i = 0; i < str.length; i++) {
+      if(str[i] == '{') {
+        let obj = {}
+        i++
+        jsonpare(str.slice(i), obj)
+        return obj
+      }
+      if(str[i] == '"') {
+        key = ""
+        i++
+        while(str[i] != '"') {
+          key += str[i]
+          i++
+        }
+        obj[key] = null
+      }
+      if(str[i] >= 0 && str[i] <= 9) {
+        let val = ''
+        while(str[i] >= 0 && str[i] <= 9) {
+
+          val += str[i++]
+
+        }
+        obj[key] = parseInt(val, 10)
+      }
+
+    }
+    return obj
+  }
+
+
+</script>
