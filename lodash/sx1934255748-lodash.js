@@ -257,7 +257,7 @@ var  sx1934255748 = {
   },
   matches(obj1) {
     return function(obj2) {
-      return isMath(obj1, obj2)
+      return this.isMath(obj1, obj2)
     }
   },
   ary(func, n = func.length) {
@@ -345,7 +345,11 @@ var  sx1934255748 = {
   pullAll(ary, values) {
     return this.pull(ary, ...values)
   },
-
+  iteratee(obj) {
+    if(typeof obj == 'string') {
+      return
+    }
+  },
   pullAllBy(ary, values, iteratee = this.identity) {
 
     iteratee = this.iteratee(iteratee)
