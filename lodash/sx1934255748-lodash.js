@@ -328,14 +328,14 @@ var  sx1934255748 = {
     if(n >= 0) {
       return ary[n]
     } else {
-      return ary[ary.length+n]
+      return ary[ary.length + n]
     }
   },
   pull(ary, ...values) {
     return ary.filter(it => {
       let bool = true
       values.forEach(value => {
-        if(!this.isSameValueZero(it, value)) {
+        if(this.isSameValueZero(it, value)) {
           bool = false
         }
       })
@@ -345,16 +345,14 @@ var  sx1934255748 = {
   pullAll(ary, values) {
     return this.pull(ary, ...values)
   },
-  iteratee(){
 
-  },
   pullAllBy(ary, values, iteratee = this.identity) {
 
     iteratee = this.iteratee(iteratee)
     return ary.filter(it => {
       let bool = true
       values.forEach(value => {
-        if(!this.isSameValueZero(iteratee(it), iteratee(value))) {
+        if(this.isSameValueZero(iteratee(it), iteratee(value))) {
           bool = false
         }
       })
@@ -374,6 +372,7 @@ var  sx1934255748 = {
 
 }
 
+var l = sx1934255748
 function MultiplyorUnitFailure(message) {
   this.message = message
   this.stack = (new Error()).stack
