@@ -308,7 +308,7 @@ var  sx1934255748 = {
     [ary[a], ary[b]] = [ary[b], ary[a]]
   },
   shuffle(ary) {
-    let ary = ary.slice()
+    ary = ary.slice()
     for(let i in ary) {
       let j = Math.round(Math.random() * (ary.length - 1))
       this.swap(ary, i, j)
@@ -349,7 +349,7 @@ var  sx1934255748 = {
   },
   iteratee(obj) {
     if(typeof obj == 'string') {
-      return
+      return 0
     }
   },
   pullAllBy(ary, values, iteratee = this.identity) {
@@ -371,44 +371,33 @@ var  sx1934255748 = {
     })
   },
 
-
-
-
-
-
-
-
-
-
-
-
 }
 
-var l = sx1934255748
-function MultiplyorUnitFailure(message) {
-  this.message = message
-  this.stack = (new Error()).stack
-}
-MultiplyorUnitFailure.prototype = Object.create(Error.prototype)
-MultiplyorUnitFailure.prototype.name = 'MultiplyorUnitFailure'
+// var l = sx1934255748
+// function MultiplyorUnitFailure(message) {
+//   this.message = message
+//   this.stack = (new Error()).stack
+// }
+// MultiplyorUnitFailure.prototype = Object.create(Error.prototype)
+// MultiplyorUnitFailure.prototype.name = 'MultiplyorUnitFailure'
 
-function primitiveMultiply(a, b) {
-  if(Math.random() > .5) {
-    return a * b
-  } else {
-    throw new MultiplyorUnitFailure()
-  }
-}
+// function primitiveMultiply(a, b) {
+//   if(Math.random() > .5) {
+//     return a * b
+//   } else {
+//     throw new MultiplyorUnitFailure()
+//   }
+// }
 
-function multiple(a, b) {
-  try{
-    return primitiveMultiply(a, b)
-  } catch(e) {
-    if(e.name == 'MultiplyorUnitFailure'){
-      return multiple(a, b)
-    }
-  }
-}
+// function multiple(a, b) {
+//   try{
+//     return primitiveMultiply(a, b)
+//   } catch(e) {
+//     if(e.name == 'MultiplyorUnitFailure'){
+//       return multiple(a, b)
+//     }
+//   }
+// }
 
 
 
