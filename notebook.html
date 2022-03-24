@@ -96,10 +96,13 @@
     var main = document.querySelector('.notebook .main')
     var add_first = document.querySelector('.add_first')
     var id = 2
-    if(localStorage.notes == undefined || localStorage.notes != '{}') {
+    if(localStorage.notes != undefined && localStorage.notes != '{}') {
+      console.log('jjj')
       node_add = false
       display_note(JSON.parse(localStorage.notes))
       add_first.textContent = '删除所有notebook'
+    } else {
+      localStorage.notes = '{}'
     }
     function display_note (notes) {
 
@@ -389,7 +392,7 @@
     // var bool = 0
   function save_note(node) {
     if(localStorage.notes == undefined) {
-      localStorage.nodes = {}
+      localStorage.notes = '{}'
     }
     let myStore = localStorage.notes
     let myStoreParse = JSON.parse(myStore) // 解析notes整体
