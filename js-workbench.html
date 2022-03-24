@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <textarea name="" id="" cols="30" rows="10">
+    var b = 67
+    var a = 9
+    console.log('ihhhh')
+    b + a
+  </textarea>
+  <button onclick="run()">Run</button>
+  <pre id="result"></pre>
+  <input type="file">
+  <script>
+    var textarea = document.querySelector('textarea')
+    var pre = document.querySelector('pre')
+    function run() {
+      var code = textarea.value
+      try {
+        {
+          let console = {
+            log: function(...args) {
+              pre.textContent += '\n'+ new Date().toISOString() + ' ' + args.join(' ')
+            }
+          }
+          var testData = ['2', '2', '3']
+
+          var result = eval(code)
+        }
+        pre.textContent += '\n' + new Date().toISOString() + ' > ' + String(result)
+        console.log(result)
+      } catch (e) {
+        console.log(e)
+        pre.textContent = e
+      }
+    }
+  </script>
+
+
+</body>
+</html>
+
+<!-- /miao/mini-regex101.html 正则匹配功能页面
+/miao/regex-graph.html   正则铁路图
+/miao/moving-box.html    方块移动
+/miao/paintboard.html    画板 -->
